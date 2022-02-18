@@ -221,7 +221,7 @@
             "defaultInputJSONSchema": {
               "properties": {
                 "attachments": {
-                  "description": "JSON array of attachments - see Help for documentation",
+                  "description": "JSON array of attachments - see https://api.slack.com/docs/message-attachments (Advanced)",
                   "items": {
                     "type": "object"
                   },
@@ -1284,7 +1284,7 @@
             "defaultInputJSONSchema": {
               "properties": {
                 "attachments": {
-                  "description": "JSON array of attachments - see Help for documentation",
+                  "description": "JSON array of attachments - see https://api.slack.com/docs/message-attachments (Advanced)",
                   "displayType": "bytes",
                   "format": "bytes",
                   "order": 3,
@@ -1393,7 +1393,7 @@
             "defaultInputJSONSchema": {
               "properties": {
                 "attachments": {
-                  "description": "JSON array of attachments - see Help for documentation",
+                  "description": "JSON array of attachments - see https://api.slack.com/docs/message-attachments (Advanced)",
                   "items": {
                     "type": "object"
                   },
@@ -1831,7 +1831,7 @@
             "defaultInputJSONSchema": {
               "properties": {
                 "attachments": {
-                  "description": "JSON array of attachments - see Help for documentation",
+                  "description": "JSON array of attachments - see https://api.slack.com/docs/message-attachments (Advanced)",
                   "items": {
                     "type": "object"
                   },
