@@ -286,7 +286,7 @@
           },
           "2d3edac4-6cb2-4ff9-bcf0-a2a0631ae9dd": {
             "nodeId": "2d3edac4-6cb2-4ff9-bcf0-a2a0631ae9dd",
-            "name": "Were there inactive assets",
+            "name": "Were There Inactive Assets",
             "type": "automated_decision",
             "continueOnFailure": false,
             "isDisabled": false,

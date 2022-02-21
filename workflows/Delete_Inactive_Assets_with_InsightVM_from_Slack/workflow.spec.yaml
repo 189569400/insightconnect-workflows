@@ -8,8 +8,8 @@ vendor: rapid7
 support: rapid7
 status: []
 hub_tags:
-  use_cases: [asset_management, vulnerability_management]
-  keywords: [inactive, assets]
+  use_cases: [asset_inventory, vulnerability_management]
+  keywords: [inactive, assets, parameters]
   features: []
   vendors: [slack, rapid7]
   products: [slack, insightvm]
