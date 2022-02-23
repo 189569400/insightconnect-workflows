@@ -1459,6 +1459,7 @@
           "bda394ea-280d-4382-98d4-a4e8d29bca57": {
             "nodeId": "bda394ea-280d-4382-98d4-a4e8d29bca57",
             "name": "Delete Inactive Assets Trigger",
+            "description": "A message was received from a Slack user matching the declared channel and message content",
             "type": "trigger",
             "continueOnFailure": false,
             "isDisabled": false,
@@ -2171,7 +2172,7 @@
       {
         "id": "71f10d9c-fb57-4f6e-be89-a04cd22e7cc1",
         "name": "Delete Inactive Assets Trigger",
-        "description": "",
+        "description": "A message was received from a Slack user matching the declared channel and message content",
         "input": {
           "matchChannel": "#change_me",
           "matchText": "!delete_inactive_assets",
