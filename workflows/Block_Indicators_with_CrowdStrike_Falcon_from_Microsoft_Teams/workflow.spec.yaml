@@ -9,8 +9,10 @@ support: rapid7
 status: []
 hub_tags:
   use_cases: [threat_detection_and_response]
-  keywords:  [firewall, block, work_from_home, crowdstrike, falcon, teams, parameters]
+  keywords:  [containment, chat, parameters]
   features: []
+  vendors: [microsoft, crowdstrike]
+  products: [microsoft_teams, crowdstrike_falcon]
 resources:
   source_url: https://github.com/rapid7/insightconnect-workflows/tree/master/workflows/Block_Indicators_with_CrowdStrike_Falcon_from_Microsoft_Teams
   license_url: https://github.com/rapid7/insightconnect-workflows/blob/master/LICENSE
