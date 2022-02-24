@@ -19,5 +19,5 @@ resources:
     title: Workflow Builder View
   - name: teams_lookup_host_success.png
     title: Successful Lookup of Automox Managed Host by IP Address
-  - name: teams_lookup_host_not_found.png
+  - name: teams_lookup_host_fail.png
     title: Lookup of Host Not Found in Automox
