@@ -3,7 +3,7 @@ products: ["insightconnect"]
 name: Lookup_Automox_Host_From_Slack
 title: "Lookup Automox Host from Slack"
 description: Lookup an Automox managed host by hostname or IP address from Slack to quickly collect details related to host details, policy compliance and status, and upcoming patch details.
-version: 1.0.0
+version: 2.0.0
 vendor: automox
 support: partner
 status: []
@@ -18,6 +18,6 @@ resources:
   - name: workflow.png
     title: Workflow Builder View
   - name: slack_lookup_host.png
-    title: Lookup Automox Managed Host by Hostname
+    title: Lookup Automox Managed Host by IP Address
   - name: slack_thread_success.png
     title: Slack Thread with Host Details
