@@ -9,7 +9,7 @@ support: rapid7
 status: []
 hub_tags:
   use_cases: [asset_management, vulnerability_management]
-  keywords: [inactive, assets]
+  keywords: [inactive, assets, parameters]
   features: []
   vendors: [slack, rapid7]
   products: [slack, insightvm]
