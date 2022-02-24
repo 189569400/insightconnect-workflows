@@ -31,12 +31,12 @@ There are two workflow parameters you will need to configure in order to complet
 
 *This workflow will only trigger in the channel specified in the Slack workflow steps.*
 
-To run the workflow, @ your Slackbot in the specific Slack channel along with the command "lookup-host" followed by the IP address or hostname.
+To run the workflow, @ your Slackbot in the specific Slack channel along with the command "lookup-automox-host" followed by the IP address or hostname.
 
 For example:
 
-* `@Rapid7 InsightConnect lookup-host hostname1`
-* `@Rapid7 InsightConnect lookup-host 127.0.0.1`
+* `@Rapid7 InsightConnect lookup-automox-host hostname1`
+* `@Rapid7 InsightConnect lookup-automox-host 127.0.0.1`
 
 The workflow will post responses in a thread of the original message.
 
