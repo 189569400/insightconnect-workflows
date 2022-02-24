@@ -1,14 +1,14 @@
 {
   "kom": {
-    "komandVersion": "1.97.1-0-gf4ed5",
+    "komandVersion": "1.97.2-0-gfa954",
     "komFileVersion": "2.0.0",
-    "exportedAt": "2022-02-14T17:06:50.442574169Z",
+    "exportedAt": "2022-02-24T18:28:21.103271164Z",
     "workflowVersions": [
       {
         "name": "Lookup Automox Host from Slack",
         "type": "runnable",
         "version": "",
-        "description": "# Description\n\nThis workflow provides fast, convenient access to information about a given host from Automox by fetching device details from Automox and posting them in a Slack thread. Host info includes hostname, IP address, operating system, and last refresh time. Lookup can be performed by either hostname or IP address.\n\n# Key Features\n\n* Fetch host information from Automox quickly in Slack\n* Determine when the system was last refreshed with the Automox platform\n* Positively identify a system by looking it up by IP address or hostname\n",
+        "description": "# Description\nThis workflow provides fast, convenient access to information about a given host from Automox by fetching device details \nfrom Automox and posting them in a Slack thread. Host information includes hostname, IP addresses, operating system, \nhost status, and patch status details. Lookup can be performed by either hostname or IP address.\n\n# Key Features\n\n* Fetch host information from Automox quickly in Slack\n* Determine when the system last checked in with the Automox platform\n* Quickly identify the number of upcoming patch count along with patch time \n* Positively identify a system by looking up its IP or hostname\n\n# Requirements\n\n* Automox API key\n* InsightConnect license\n* [Slack](https://docs.rapid7.com/insightconnect/configure-slack-for-chatops/)\n\n# Documentation\n\n## Setup\n\nImport the workflow from the Rapid7 Extension Library and proceed through the Import Workflow wizard in InsightConnect. \nImport plugins, create or select connections, and rename the workflow as a part of the Import Workflow wizard as necessary.\n\nThere are two workflow parameters you will need to configure in order to complete setup of your workflow:\n* `Automox Organization ID`: The Automox organization used for performing host lookups\n* `Slack Channel`: The Slack channel name in your environment where the workflow should be triggered\n\n## Usage\n\n*This workflow will only trigger in the channel specified in the Slack workflow steps.*\n\nTo run the workflow, @ your Slackbot in the specific Slack channel along with the command \"lookup-host\" followed by the IP address or hostname.\n\nFor example:\n\n* `@Rapid7 InsightConnect lookup-automox-host hostname1`\n* `@Rapid7 InsightConnect lookup-automox-host 127.0.0.1`\n\nThe workflow will post responses in a thread of the original message.\n\n## Technical Details\n\nPlugins utilized by workflow:\n\n|Plugin|Version|Count|\n|----|----|--------|\n|Automox|1.1.0|2|\n\n## Troubleshooting\n\n_There is no troubleshooting information at this time_\n\n# Version History\n\n* 1.0.0 - Initial workflow\n\n# Links\n\n## References\n\n* [Automox](https://www.automox.com/)\n* [Slack](https://www.slack.com)\n",
         "graph": {
           "edges": {
             "13824fbf-9ea5-4f5e-b325-708d5c3534ea": {
@@ -271,7 +271,7 @@
             "defaultInputJSONSchema": null,
             "defaultOutputJSONSchema": null,
             "outputJSONSchema": null,
-            "defaultImageData": "https://us3.cdn-assets.connect.insight.rapid7.com/step-type-icons/artifact.svg",
+            "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/artifact.svg",
             "connectionType": "NONE"
           },
           "32e3b64e-a706-4b43-8d70-96c8078a80a0": {
@@ -375,12 +375,12 @@
             "defaultInputJSONSchema": null,
             "defaultOutputJSONSchema": null,
             "outputJSONSchema": null,
-            "defaultImageData": "https://us3.cdn-assets.connect.insight.rapid7.com/step-type-icons/automated-decision.svg",
+            "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/automated-decision.svg",
             "connectionType": "NONE"
           },
           "8b5f067d-03aa-4d9e-a06b-5ad7dda77b99": {
             "nodeId": "8b5f067d-03aa-4d9e-a06b-5ad7dda77b99",
-            "name": "lookup-host Trigger",
+            "name": "lookup-automox-host Trigger",
             "description": "Trigger this workflow by entering a Slack command in the following format:\n\"@Rapid7 InsightConnect lookup-host workstation123\"\nOR\n\"@Rapid7 InsightConnect lookup-host 192.168.1.2\"",
             "type": "trigger",
             "continueOnFailure": false,
@@ -388,11 +388,11 @@
             "parameters": {
               "input": {
                 "matchChannel": "{{$workflow.[Slack Channel]}}",
-                "matchText": "(?i)lookup-host",
+                "matchText": "(?i)lookup-automox-host",
                 "type": "any"
               }
             },
-            "triggerId": "03e9bb66-287d-4174-a33c-c7bfb83a23e6",
+            "triggerId": "33373f4e-26ee-4c9b-924c-0274126c79b4",
             "defaultInputJSONSchema": {
               "properties": {
                 "matchChannel": {
@@ -642,7 +642,7 @@
               "type": "object"
             },
             "outputJSONSchema": null,
-            "defaultImageData": "https://us3.cdn-assets.connect.insight.rapid7.com/step-type-icons/chatops.svg",
+            "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/chatops.svg",
             "connectionType": "NONE",
             "chatOpsAppName": "slack",
             "chatOpsIdentifier": "message"
@@ -682,7 +682,7 @@
             "defaultInputJSONSchema": null,
             "defaultOutputJSONSchema": null,
             "outputJSONSchema": null,
-            "defaultImageData": "https://us3.cdn-assets.connect.insight.rapid7.com/step-type-icons/automated-decision.svg",
+            "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/automated-decision.svg",
             "connectionType": "NONE"
           },
           "aa8aef01-53a9-436c-9bca-d6a25121c028": {
@@ -786,7 +786,7 @@
             "defaultInputJSONSchema": null,
             "defaultOutputJSONSchema": null,
             "outputJSONSchema": null,
-            "defaultImageData": "https://us3.cdn-assets.connect.insight.rapid7.com/step-type-icons/pattern-match.svg",
+            "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/pattern-match.svg",
             "connectionType": "NONE"
           },
           "baf98401-3b07-4ab0-ae5b-e63ffb3c997b": {
@@ -905,7 +905,7 @@
               "slugVendor": "automox",
               "slugName": "automox",
               "slugVersion": "1.1.0",
-              "imageData": "https://us3.cdn-assets.connect.insight.rapid7.com/icons/automox/automox/1.1.0/icon.png"
+              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/automox/automox/1.1.0/icon.png"
             },
             "identifier": "get_device_by_ip",
             "continueOnFailure": true,
@@ -1169,10 +1169,10 @@
                     }
                   },
                   "required": [
-                    "organization_id",
-                    "id",
+                    "name",
                     "server_group_id",
-                    "name"
+                    "id",
+                    "organization_id"
                   ],
                   "title": "Device",
                   "type": "object"
@@ -1253,7 +1253,7 @@
               "slugVendor": "automox",
               "slugName": "automox",
               "slugVersion": "1.1.0",
-              "imageData": "https://us3.cdn-assets.connect.insight.rapid7.com/icons/automox/automox/1.1.0/icon.png"
+              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/automox/automox/1.1.0/icon.png"
             },
             "identifier": "get_device_by_hostname",
             "continueOnFailure": true,
@@ -1517,10 +1517,10 @@
                     }
                   },
                   "required": [
-                    "organization_id",
-                    "id",
+                    "name",
                     "server_group_id",
-                    "name"
+                    "id",
+                    "organization_id"
                   ],
                   "title": "Device",
                   "type": "object"
@@ -1624,12 +1624,12 @@
     ],
     "triggers": [
       {
-        "id": "03e9bb66-287d-4174-a33c-c7bfb83a23e6",
-        "name": "lookup-host Trigger",
+        "id": "33373f4e-26ee-4c9b-924c-0274126c79b4",
+        "name": "lookup-automox-host Trigger",
         "description": "Trigger this workflow by entering a Slack command in the following format:\n\"@Rapid7 InsightConnect lookup-host workstation123\"\nOR\n\"@Rapid7 InsightConnect lookup-host 192.168.1.2\"",
         "input": {
           "matchChannel": "{{$workflow.[Slack Channel]}}",
-          "matchText": "(?i)lookup-host",
+          "matchText": "(?i)lookup-automox-host",
           "type": "any"
         },
         "inputJsonSchema": {
