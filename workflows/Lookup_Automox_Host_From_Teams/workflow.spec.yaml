@@ -3,7 +3,7 @@ products: ["insightconnect"]
 name: Lookup_Automox_Host_From_Teams
 title: "Lookup Automox Host from Teams"
 description: Lookup an Automox managed host by hostname or IP address from Microsoft Teams to quickly collect details related to host details, policy compliance and status, and upcoming patch details.
-version: 1.0.0
+version: 2.0.0
 vendor: automox
 support: partner
 status: []
@@ -18,6 +18,6 @@ resources:
   - name: workflow.png
     title: Workflow Builder View
   - name: teams_lookup_host_success.png
-    title: Successful Lookup of Automox Managed Host by Hostname
+    title: Successful Lookup of Automox Managed Host by IP Address
   - name: teams_lookup_host_not_found.png
     title: Lookup of Host Not Found in Automox
