@@ -9,7 +9,7 @@ support: rapid7
 status: []
 hub_tags:
   use_cases: [network_firewall]
-  keywords: [firewall, chatops, work_from_home]
+  keywords: [firewall, chatops, work_from_home, parameters]
   features: []
   vendors: [microsoft, fortinet]
   products: [microsoft_teams, fortinet_fortigate]
