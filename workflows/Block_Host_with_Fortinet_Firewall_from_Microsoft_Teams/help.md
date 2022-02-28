@@ -72,6 +72,7 @@ _There is no troubleshooting information at this time_
 
 # Version History
 
+* 2.0.1 - Fix issue with missing screenshot
 * 2.0.0 - Leverage workflow parameters feature | Update documentation | Update Fortinet FortiGate plugin to version 6.0.0 | Update Microsoft Teams plugin to version 3.1.5
 * 1.1.2 - Update Microsoft Teams to version 3.1.0 | Update documentation
 * 1.1.1 - Update plugins to latest versions
