@@ -58,6 +58,7 @@ _There is no troubleshooting information at this time_
 
 # Version History
 
+* 2.0.0 - Changed trigger syntax to lookup-automox-host
 * 1.0.0 - Initial workflow
 
 # Links
