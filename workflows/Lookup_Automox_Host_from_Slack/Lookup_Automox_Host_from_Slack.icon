@@ -2,7 +2,7 @@
   "kom": {
     "komandVersion": "1.97.2-0-gfa954",
     "komFileVersion": "2.0.0",
-    "exportedAt": "2022-02-24T18:28:21.103271164Z",
+    "exportedAt": "2022-03-03T20:26:21.490153817Z",
     "workflowVersions": [
       {
         "name": "Lookup Automox Host from Slack",
@@ -380,7 +380,7 @@
           },
           "8b5f067d-03aa-4d9e-a06b-5ad7dda77b99": {
             "nodeId": "8b5f067d-03aa-4d9e-a06b-5ad7dda77b99",
-            "name": "lookup-automox-host Trigger",
+            "name": "Lookup-automox-host Trigger",
             "description": "Trigger this workflow by entering a Slack command in the following format:\n\"@Rapid7 InsightConnect lookup-host workstation123\"\nOR\n\"@Rapid7 InsightConnect lookup-host 192.168.1.2\"",
             "type": "trigger",
             "continueOnFailure": false,
@@ -392,7 +392,7 @@
                 "type": "any"
               }
             },
-            "triggerId": "33373f4e-26ee-4c9b-924c-0274126c79b4",
+            "triggerId": "9a091f28-f7b4-442b-b125-621350a7ec48",
             "defaultInputJSONSchema": {
               "properties": {
                 "matchChannel": {
@@ -1624,8 +1624,8 @@
     ],
     "triggers": [
       {
-        "id": "33373f4e-26ee-4c9b-924c-0274126c79b4",
-        "name": "lookup-automox-host Trigger",
+        "id": "9a091f28-f7b4-442b-b125-621350a7ec48",
+        "name": "Lookup-automox-host Trigger",
         "description": "Trigger this workflow by entering a Slack command in the following format:\n\"@Rapid7 InsightConnect lookup-host workstation123\"\nOR\n\"@Rapid7 InsightConnect lookup-host 192.168.1.2\"",
         "input": {
           "matchChannel": "{{$workflow.[Slack Channel]}}",
