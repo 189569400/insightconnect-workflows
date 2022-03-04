@@ -2,7 +2,7 @@
   "kom": {
     "komandVersion": "1.97.2-0-gfa954",
     "komFileVersion": "2.0.0",
-    "exportedAt": "2022-02-24T18:46:51.890760581Z",
+    "exportedAt": "2022-03-04T15:33:08.056449857Z",
     "workflowVersions": [
       {
         "name": "Lookup Automox Host from Teams",
@@ -1079,7 +1079,7 @@
           },
           "8b5f067d-03aa-4d9e-a06b-5ad7dda77b99": {
             "nodeId": "8b5f067d-03aa-4d9e-a06b-5ad7dda77b99",
-            "name": "lookup-automox-host Trigger",
+            "name": "Lookup-automox-host Trigger",
             "description": "Trigger this workflow by entering a Teams command in the following format:\n\"!lookup-host workstation123\"\nOR\n\"!lookup-host 192.168.1.2\"",
             "type": "trigger",
             "plugin": {
@@ -1099,7 +1099,7 @@
                 "team_name": "{{$workflow.[Team Name]}}"
               }
             },
-            "triggerId": "1a12f436-ff63-4b85-81c1-6e7f347dc654",
+            "triggerId": "8c458a2a-3475-42b1-9895-da18a7d4ff2e",
             "defaultInputJSONSchema": {
               "properties": {
                 "channel_name": {
@@ -2160,9 +2160,9 @@
     ],
     "triggers": [
       {
-        "id": "1a12f436-ff63-4b85-81c1-6e7f347dc654",
+        "id": "8c458a2a-3475-42b1-9895-da18a7d4ff2e",
         "identifier": "new_message_received",
-        "name": "lookup-automox-host Trigger",
+        "name": "Lookup-automox-host Trigger",
         "description": "Trigger this workflow by entering a Teams command in the following format:\n\"!lookup-host workstation123\"\nOR\n\"!lookup-host 192.168.1.2\"",
         "input": {
           "channel_name": "{{$workflow.[Channel Name]}}",
