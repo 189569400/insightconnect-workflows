@@ -3,13 +3,13 @@ products: ["insightconnect", "insightidr"]
 name: Enrich_Indicators_with_Recorded_Future_from_IDR_Alert
 title: "Enrich Indicators with Recorded Future from IDR Alert"
 description: "This workflow enriches an IDR alert by performing a lookup on all domains, hashes, URLs and IPs in the investigation with Recorded Future."
-version: 1.0.0
+version: 1.1.1
 vendor: rapid7
 support: rapid7
 status: []
 hub_tags:
   use_cases: [threat_intel]
-  keywords: [enrichment, recorded future, domain, hash, url, ip]
+  keywords: [enrichment, recorded_future, domains, hash, url, ip_address, parameters]
   features: []
   vendors: [rapid7, recorded_future]
   products: [insightidr, recorded_future]
@@ -17,21 +17,27 @@ resources:
   source_url: https://github.com/rapid7/insightconnect-workflows/tree/master/workflows/Enrich_Indicators_with_Recorded_Future_from_IDR_Alert
   license_url: https://github.com/rapid7/insightconnect-workflows/blob/master/LICENSE
   screenshots:
-  - name: results1.png
+  - name: Workflow.png
+    title: Whole Workflow
+  - name: Workflow_Domains_Loop.png
+    title: Workflow Inside Domains Loop
+  - name: Workflow_URLs_Loop.png
+    title: Workflow Inside URLs Loop
+  - name: Workflow_Addresses_Loop.png
+    title: Workflow Inside Addresses Loop
+  - name: Workflow_Processes_Loop.png
+    title: Workflow Inside Processes Loop
+  - name: Workflow_Hashes_Loop.png
+    title: Workflow Inside Hashes Loop
+  - name: IDR_Alert_Input_Summary.png
+    title: IDR Alert Input Summary Artifact
+  - name: Recorded_Future_Domain_Lookup_Output.png
     title: Recorded Future Domain Lookup Output
-  - name: results2.png
+  - name: Recorded_Future_URL_Lookup_Output.png
     title: Recorded Future URL Lookup Output
-  - name: results3.png
+  - name: Recorded_Future_URL_Lookup_Output_2.png
+    title: Recorded Future URL Lookup Output 2
+  - name: Recorded_Future_IP_Lookup_Output.png
+    title: Recorded Future IP Lookup Output
+  - name: Recorded_Future_Hash_Lookup_Output.png
     title: Recorded Future Hash Lookup Output
-  - name: workflow1.png
-    title: Workflow View Part One
-  - name: workflow2.png
-    title: Workflow View Part Two
-  - name: workflow3.png
-    title: Workflow View Part Three
-  - name: workflow4.png
-    title: Workflow View Part Four
-  - name: workflow5.png
-    title: Workflow View Part Five
-  - name: workflow6.png
-    title: Workflow View Part Six

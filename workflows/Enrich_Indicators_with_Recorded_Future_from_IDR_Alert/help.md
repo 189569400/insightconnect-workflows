@@ -37,6 +37,7 @@ _There is no troubleshooting information at this time_
 
 # Version History
 
+* 1.1.1 - Fix Recorded Future Domain Lookup bug | Fix Recorded Future URL Lookup error
 * 1.1.0 - Update Recorded Future plugin version
 * 1.0.0 - Initial workflow
 

@@ -1,14 +1,14 @@
 {
   "kom": {
-    "komandVersion": "1.86.1-0-gc4523",
+    "komandVersion": "1.98.1-0-ga690f",
     "komFileVersion": "2.0.0",
-    "exportedAt": "2021-06-28T18:53:53.562172721Z",
+    "exportedAt": "2022-03-14T09:07:45.592133622Z",
     "workflowVersions": [
       {
         "name": "Enrich Indicators with Recorded Future from IDR Alert",
         "type": "runnable",
         "version": "",
-        "description": "# Description\n\nThis workflow enriches an IDR alert by performing a lookup on all domains, hashes, URLs and IPs in the investigation with Recorded Future.\n\n# Key Features\n\n* Perform a domain, hash, URL and IP lookup automatically from any IDR alert\n\n# Requirements\n\n* InsightConnect License\n* Recorded Future API Key and Account Credentials\n\n# Documentation\n\n## Setup\n\n* Import the workflow from the Rapid7 Extension Library and proceed through the Import Workflow wizard in InsightConnect. Import plugins, create or select connections, and rename the workflow as a part of the Import Workflow wizard as necessary.\n* Configure the connections for the Cb Response plugin\n* Activate your workflow\n* Navigate to IDR's alert triggers page at #/automation/alerts\n* Click Create Alert Trigger\n* Select Enrich Indicators with Recorded Future from IDR Alert\n* While Selecting Alerts, check any alerts you would like to automatically enrich\n\n## Technical Details\n\nPlugins utilized by workflow:\n\n|Plugin|Version|Count|\n|----|----|--------|\n|Recorded Future|4.0.2|4|\n\n## Troubleshooting\n\n_There is no troubleshooting information at this time_\n\n# Version History\n\n* 1.0.0 - Initial workflow\n\n# Links\n\n## References\n\n* [Recorded Future API Documentation](https://support.recordedfuture.com/hc/en-us/categories/115000803507-Raw-API)\n",
+        "description": "# Description\n\nThis workflow enriches an IDR alert by performing a lookup on all domains, hashes, URLs and IPs in the investigation with Recorded Future.\n\n# Key Features\n\n* Perform a domain, hash, URL and IP lookup automatically from any IDR alert\n\n# Requirements\n\n* InsightConnect License\n* Recorded Future API Key and Account Credentials\n\n# Documentation\n\n## Setup\n\n* Import the workflow from the Rapid7 Extension Library and proceed through the Import Workflow wizard in InsightConnect. Import plugins, create or select connections, and rename the workflow as a part of the Import Workflow wizard as necessary.\n* Configure the connections for the Cb Response plugin\n* Activate your workflow\n* Navigate to IDR's alert triggers page at #/automation/alerts\n* Click Create Alert Trigger\n* Select Enrich Indicators with Recorded Future from IDR Alert\n* While Selecting Alerts, check any alerts you would like to automatically enrich\n\n## Technical Details\n\nPlugins utilized by workflow:\n\n|Plugin|Version|Count|\n|----|----|--------|\n|Recorded Future|5.0.1|4|\n\n## Troubleshooting\n\n_There is no troubleshooting information at this time_\n\n# Version History\n\n* 1.1.1 - Fix Recorded Future Domain Lookup bug | Fix Recorded Future URL Lookup error\n* 1.1.0 - Update Recorded Future plugin version\n* 1.0.0 - Initial workflow\n\n# Links\n\n## References\n\n* [Recorded Future API Documentation](https://support.recordedfuture.com/hc/en-us/categories/115000803507-Raw-API)\n",
         "graph": {
           "edges": {
             "02351b24-5132-4944-be62-2d89eaaa1998": {
@@ -512,7 +512,7 @@
             "type": "trigger",
             "continueOnFailure": false,
             "isDisabled": false,
-            "triggerId": "8ad5a1e8-6968-467a-82d5-d99546f8de60",
+            "triggerId": "d9b287cb-693d-4836-aac7-d41aeef9d60f",
             "defaultInputJSONSchema": {
               "definitions": {
                 "actor": {
@@ -1186,7 +1186,7 @@
           },
           "3df8bb9f-ea87-4b9a-8abb-3945ca0edff0": {
             "nodeId": "3df8bb9f-ea87-4b9a-8abb-3945ca0edff0",
-            "name": "Was Domain Found",
+            "name": "Was Domain Found?",
             "type": "automated_decision",
             "continueOnFailure": false,
             "isDisabled": false,
@@ -2864,7 +2864,7 @@
             "parameters": {
               "input": {
                 "comment": "",
-                "url": "{{[a2c738a8-1fbd-4023-98e7-82338c77f68b].[$item]}}"
+                "url": "{{[a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4].[$item]}}"
               }
             },
             "defaultInputJSONSchema": {
@@ -4342,7 +4342,7 @@
             "isDisabled": false,
             "parameters": {
               "input": {
-                "content": "## Recorded Future Domain Lookup Results for {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[entity].[name]}}\n\n### Entity\n**ID**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[entity].[id]}}\n**Name**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[entity].[name]}}\n**Type**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[entity].[type]}}\n**Description**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[entity].[description]}}\n\n### Risk\n**Risk Summary**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[risk].[riskSummary]}}\n**Risk Score**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[risk].[score]}}\n**Risk Rules**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[risk].[rules]}}\n**Risk Criticality**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[risk].[criticality]}}\n**Criticality Label**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[risk].[criticalityLabel]}}\n**Evidence Details**:\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[risk].[evidenceDetails]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Timestamps\n**First Seen**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[timestamps].[firstSeen]}}\n**Last Seen**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[timestamps].[lastSeen]}}\n\n### Metrics\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[metrics]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### IntelCard\n{{[8ab32c04-1159-4095-8649-3b92a00fa0de].[intelCard]}}\n\n### Sightings\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[sightings]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Threat Lists\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[threatLists]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Analyst Notes\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[analystNotes]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Enterprise Lists\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[enterpriseLists]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Related Entities\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[relatedEntities]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Counts\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[counts]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}"
+                "content": "## Recorded Future Domain Lookup Results for {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[entity].[name]}}\n### Entity\n**ID**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[entity].[id]}}\n**Name**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[entity].[name]}}\n**Type**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[entity].[type]}}\n**Description**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[entity].[description]}}\n\n### Risk\n**Risk Summary**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[riskSummary]}}\n**Risk Score**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[score]}}\n**Risk Rules**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[rules]}}\n**Risk Criticality**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[criticality]}}\n**Criticality Label**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[criticalityLabel]}}\n**Evidence Details**:\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[evidenceDetails]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Timestamps\n**First Seen**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[timestamps].[firstSeen]}}\n**Last Seen**: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[timestamps].[lastSeen]}}\n\n### Metrics\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[metrics]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### IntelCard\n{{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[intelCard]}}\n\n### Sightings\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[sightings]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Threat Lists\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[threatLists]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Analyst Notes\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[analystNotes]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Enterprise Lists\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[enterpriseLists]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Related Entities\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[relatedEntities]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Counts\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[counts]}}\n\n{{#each .}}\n **{{@key}}**: {{.}}\n{{/each}}\n\n{{/each}}"
               },
               "type": "markdown"
             },
@@ -4423,17 +4423,23 @@
             "connectionType": "NONE"
           }
         },
-        "tags": null,
-        "humanCostSeconds": 0,
+        "tags": [],
+        "humanCostSeconds": 9600,
         "humanCostDisplayUnit": "minutes",
         "parameters": {
-          "definitionSchema": null
-        }
+          "definitionSchema": {
+            "type": "object",
+            "required": [],
+            "properties": {},
+            "definitions": {}
+          }
+        },
+        "summary": ""
       }
     ],
     "triggers": [
       {
-        "id": "8ad5a1e8-6968-467a-82d5-d99546f8de60",
+        "id": "d9b287cb-693d-4836-aac7-d41aeef9d60f",
         "name": "IDR Alert",
         "description": "",
         "input": null,
