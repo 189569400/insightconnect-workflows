@@ -1,8 +1,8 @@
 {
   "kom": {
-    "komandVersion": "1.89.5-0-g6408f",
+    "komandVersion": "1.98.1-0-ga690f",
     "komFileVersion": "2.0.0",
-    "exportedAt": "2021-08-29T21:44:47.84719606Z",
+    "exportedAt": "2022-03-14T11:45:24.553772903Z",
     "workflowVersions": [
       {
         "name": "Enrich InsightIDR Alerts with Threat Intelligence from VirusTotal",
@@ -492,7 +492,7 @@
           },
           "0cd18853-cc3d-46a5-80cf-fd5d4ba85f02": {
             "nodeId": "0cd18853-cc3d-46a5-80cf-fd5d4ba85f02",
-            "name": "Domain Report",
+            "name": "Domain Artifact",
             "type": "artifact",
             "continueOnFailure": false,
             "isDisabled": false,
@@ -886,8 +886,8 @@
               "name": "VirusTotal",
               "slugVendor": "rapid7",
               "slugName": "virustotal",
-              "slugVersion": "7.0.0",
-              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/7.0.0/icon.png"
+              "slugVersion": "8.0.1",
+              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.0.1/icon.png"
             },
             "identifier": "lookup_hash",
             "continueOnFailure": true,
@@ -1175,12 +1175,6 @@
                       "order": 13,
                       "title": "Main Icon"
                     },
-                    "malicious": {
-                      "description": "True if there are one or more votes indicating that the file is malicious",
-                      "order": 32,
-                      "title": "Malicious",
-                      "type": "boolean"
-                    },
                     "md5": {
                       "description": "File's MD5 hash",
                       "order": 14,
@@ -1467,8 +1461,8 @@
               "name": "VirusTotal",
               "slugVendor": "rapid7",
               "slugName": "virustotal",
-              "slugVersion": "7.0.0",
-              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/7.0.0/icon.png"
+              "slugVersion": "8.0.1",
+              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.0.1/icon.png"
             },
             "identifier": "scan_url_report",
             "continueOnFailure": false,
@@ -1702,11 +1696,6 @@
                       "title": "Last Submission Date",
                       "type": "integer"
                     },
-                    "malicious": {
-                      "order": 25,
-                      "title": "Malicious",
-                      "type": "boolean"
-                    },
                     "outgoing_links": {
                       "description": "List of links to outgoing domains",
                       "items": {
@@ -1829,7 +1818,7 @@
             "type": "trigger",
             "continueOnFailure": false,
             "isDisabled": false,
-            "triggerId": "bd8fc3e3-cd65-4034-b30e-d0837037595b",
+            "triggerId": "4ec13f5f-199b-4f33-b146-50c128a72cc9",
             "defaultInputJSONSchema": {
               "definitions": {
                 "actor": {
@@ -2396,8 +2385,8 @@
               "name": "VirusTotal",
               "slugVendor": "rapid7",
               "slugName": "virustotal",
-              "slugVersion": "7.0.0",
-              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/7.0.0/icon.png"
+              "slugVersion": "8.0.1",
+              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.0.1/icon.png"
             },
             "identifier": "domain_report",
             "continueOnFailure": false,
@@ -3157,8 +3146,8 @@
               "name": "VirusTotal",
               "slugVendor": "rapid7",
               "slugName": "virustotal",
-              "slugVersion": "7.0.0",
-              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/7.0.0/icon.png"
+              "slugVersion": "8.0.1",
+              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.0.1/icon.png"
             },
             "identifier": "ip_address_report",
             "continueOnFailure": false,
@@ -3166,7 +3155,7 @@
             "isCloud": false,
             "parameters": {
               "input": {
-                "address": "{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}}"
+                "address": "{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item].[ip]}}"
               }
             },
             "defaultInputJSONSchema": {
@@ -4036,18 +4025,23 @@
             "connectionType": "ORCHESTRATOR"
           }
         },
-        "tags": null,
+        "tags": [],
         "humanCostSeconds": 600,
         "humanCostDisplayUnit": "minutes",
         "parameters": {
-          "definitionSchema": null
+          "definitionSchema": {
+            "type": "object",
+            "required": [],
+            "properties": {},
+            "definitions": {}
+          }
         },
         "summary": ""
       }
     ],
     "triggers": [
       {
-        "id": "bd8fc3e3-cd65-4034-b30e-d0837037595b",
+        "id": "4ec13f5f-199b-4f33-b146-50c128a72cc9",
         "name": "IDR Alert",
         "description": "",
         "input": null,

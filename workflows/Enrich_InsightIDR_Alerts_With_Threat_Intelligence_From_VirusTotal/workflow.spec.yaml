@@ -3,7 +3,7 @@ products: ["insightconnect", "insightidr"]
 name: Enrich_InsightIDR_Alerts_With_Threat_Intelligence_From_VirusTotal
 title: "Enrich InsightIDR Alerts with Threat Intelligence from VirusTotal"
 description: "Enrich indicators of compromise with threat intelligence from VirusTotal using the IDR Alert Trigger."
-version: 1.1.0
+version: 1.2.0
 vendor: rapid7
 support: rapid7
 status: []
@@ -17,9 +17,23 @@ resources:
   source_url: https://github.com/rapid7/insightconnect-workflows/tree/master/workflows/Enrich_InsightIDR_Alerts_With_Threat_Intelligence_From_VirusTotal
   license_url: https://github.com/rapid7/insightconnect-workflows/blob/master/LICENSE
   screenshots:
-  - name: artifact.png
-    title: The Workflow Artifact
-  - name: job.png
-    title: A Successful Workflow Job
-  - name: workflow.png
-    title: The Active Workflow View
+  - name: Workflow.png
+    title: Whole Workflow
+  - name: Workflow_Domains_Loop.png
+    title: Workflow Inside Domains Loop
+  - name: Workflow_URLs_Loop.png
+    title: Workflow Inside URLs Loop
+  - name: Workflow_Addresses_Loop.png
+    title: Workflow Inside Addresses Loop
+  - name: Workflow_Processes_Loop.png
+    title: Workflow Inside Processes Loop
+  - name: Workflow_Hashes_Loop.png
+    title: Workflow Inside Hashes Loop
+  - name: Domain_Artifact.png
+    title: Domain Artifact
+  - name: URL_Artifact.png
+    title: URL Artifact
+  - name: IP_Artifact.png
+    title: IP Artifact
+  - name: Hash_Artifact.png
+    title: Hash Artifact

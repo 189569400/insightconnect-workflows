@@ -6,10 +6,7 @@ To use this workflow, import and activate it in InsightConnect. Then, open an In
 
 # Key Features
 
-* Learn how to use more complex workflows for incident investigation and response
-* Learn how to set up a Connection on your own Orchestrator
-* Learn how Loop Steps work in InsightConnect
-* Learn how Join Steps work in InsightConnect
+* Perform a domain, hash, URL and IP lookup automatically from any IDR alert
 
 # Requirements
 
@@ -51,7 +48,7 @@ Plugins utilized by workflow:
 
 |Plugin|Version|Count|
 |----|----|--------|
-|VirusTotal|7.0.0|4|
+|VirusTotal|8.0.1|4|
 |HashIt|2.0.4|1|
 |Math|1.2.1|3|
 
@@ -61,6 +58,7 @@ _There is no troubleshooting information at this time_
 
 # Version History
 
+* 1.2.0 - Update VirusTotal plugin to 8.0.1 | Fix bug with handling IPs input in Lookup IP step
 * 1.1.0 - Updated VirusTotal plugin | Added Math and ExtractIt plugins to support the same artifact outputs
 * 1.0.3 - Added alert summary artifact
 * 1.0.2 - Update workflow to use VirusTotal 6.0.4 plugin which fixes an issue returning ASNs
