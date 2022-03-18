@@ -3,7 +3,7 @@ products: ["insightconnect", "insightidr"]
 name: Forward_Alerts_from_InsightIDR_to_Slack
 title: "Forward Alerts from InsightIDR to Slack"
 description: "This workflow forwards IDR alerts to a Slack channel."
-version: 1.1.0
+version: 1.0.1
 vendor: rapid7
 support: rapid7
 status: []
