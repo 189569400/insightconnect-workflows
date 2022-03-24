@@ -23,8 +23,8 @@ resources:
     title: Workflow Inside Domains Loop
   - name: Workflow_URLs_Loop.png
     title: Workflow Inside URLs Loop
-  - name: Workflow_Addresses_Loop.png
-    title: Workflow Inside Addresses Loop
+  - name: Workflow_IPs_Loop.png
+    title: Workflow Inside IPs Loop
   - name: Workflow_Processes_Loop.png
     title: Workflow Inside Processes Loop
   - name: Workflow_Hashes_Loop.png
