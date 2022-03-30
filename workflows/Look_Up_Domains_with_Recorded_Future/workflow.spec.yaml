@@ -3,19 +3,25 @@ products: ["insightconnect", "insightidr"]
 name: Look_Up_Domains_with_Recorded_Future
 title: "Look Up Domains with Recorded Future"
 description: "This workflow enriches an IDR alert by performing a lookup on all domains in the investigation with Recorded Future."
-version: 1.1.1
+version: 1.1.2
 vendor: rapid7
 support: rapid7
 status: []
 hub_tags:
   use_cases: [threat_intel]
-  keywords: [enrichment, domains]
+  keywords: [enrichment, domains, parameters]
   features: []
   vendors: [rapid7, recorded_future]
   products: [insightidr, recorded_future]
 resources:
   screenshots:
-  - name: workflow_view.png
+  - name: workflow.png
     title: Workflow View
+  - name: workflow_domain_loop.png
+    title: Workflow Loop View
+  - name: domain_lookup1.png
+    title: Recorded Future IDR Alert Summary
+  - name: domain_lookup2.png
+    title: Recorded Future Domain Lookup Output
   source_url: https://github.com/rapid7/insightconnect-workflows/tree/master/workflows/Look_Up_Domains_with_Recorded_Future
   license_url: https://github.com/rapid7/insightconnect-workflows/blob/master/LICENSE

@@ -15,14 +15,21 @@ This workflow enriches an IDR alert by performing a lookup on all domains in the
 
 ## Setup
 
-* Download the workflow or clone the repository `git clone https://github.com/rapid7/insightconnet-workflows.git`
-* Login to InsightConnect, and “Import” the .icon file into the workflow builder
-* Configure the connections for the Cb Response plugin
-* Activate your workflow
-* Navigate to IDR's alert triggers page at #/automation/alerts
-* Click Create Alert Trigger
-* Select Look Up Domains with Recorded Future
-* While Selecting Alerts, check any alerts you would like to automatically enrich
+Import the workflow from the Rapid7 Extension Library and proceed through the Import Workflow wizard in InsightConnect. Import plugins, create or select connections, and rename the workflow as a part of the Import Workflow wizard as necessary.
+
+After configuring the workflow, activate it and create an alert trigger in InsightIDR by following these steps:
+
+1. Open the Automation tab in InsightIDR 
+2. Navigate to the Alert Triggers tab 
+3. Click Create Alert Trigger 
+4. Select Custom InsightConnect Workflows from the Action Category dropdown menu 
+5. Select this workflow 
+6. Select one or more alerts
+7. Click Add Alert Trigger
+
+## Usage
+
+The workflow will run automatically any time the selected alert(s) open a new investigation in InsightIDR.
 
 ## Technical Details
 
@@ -30,7 +37,7 @@ Plugins utilized by workflow:
 
 |Plugin|Version|Count|
 |----|----|--------|
-|Recorded Future|4.0.0|1|
+|Recorded Future|5.0.1|1|
 
 ## Troubleshooting
 
@@ -38,6 +45,7 @@ _There is no troubleshooting information at this time_
 
 # Version History
 
+* 1.1.2 - Add more detailed information about domain from Recorded Future lookup | Update Recorded Future plugin to version 5.0.1 | Update documentation | Update screenshots
 * 1.1.1 - Change references link | Add workflow screenshot
 * 1.1.0 - Update Recorded Future plugin
 * 1.0.0 - Initial workflow
