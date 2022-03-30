@@ -246,7 +246,7 @@
             "parameters": {
               "input": {
                 "channel_name": "{{[bda394ea-280d-4382-98d4-a4e8d29bca57].[channel_name]}}",
-                "message_content": "❗&ensp;<b>Inactive Assets Found:</b>&ensp;❗<br>\n<br>\nAssets to Delete: {{[59f32be5-be23-4fcc-91c8-b9c51b863245].[content]}}<br>\n<br>\n<a href=\"{{[$job].[URL]}}\">Do you want to delete them?</a>",
+                "message_content": "❗&ensp;<b>Inactive Assets Found:</b>&ensp;❗<br>\n<br>\nAssets to Delete: {{[59f32be5-be23-4fcc-91c8-b9c51b863245].[content]}}<br>\n<br>\nInactive assets without a hostname will also be deleted<br>\n<a href=\"{{[$job].[URL]}}\">Do you want to delete them?</a>",
                 "team_name": "{{[bda394ea-280d-4382-98d4-a4e8d29bca57].[team_name]}}",
                 "thread_id": "{{[bda394ea-280d-4382-98d4-a4e8d29bca57].[message].[id]}}"
               }
