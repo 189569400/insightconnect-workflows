@@ -40,8 +40,8 @@ Plugins utilized by workflow:
 
 |Plugin|Version|Count|
 |----|----|--------|
-|Rapid7 InsightVM|4.8.1|3|
-|Microsoft Teams|3.1.0|6|
+|Microsoft Teams|3.1.5|6|
+|Rapid7 InsightVM Console|4.9.1|3|
 
 ## Troubleshooting
 
@@ -49,6 +49,7 @@ _There is no troubleshooting information at this time_
 
 # Version History
 
+* 1.0.2 - Fix delete inactive assets with no hostname
 * 1.0.1 - Update keywords
 * 1.0.0 - Initial workflow
 
