@@ -2,13 +2,13 @@
   "kom": {
     "komandVersion": "1.100.0-0-gcd062",
     "komFileVersion": "2.0.0",
-    "exportedAt": "2022-03-30T14:54:05.662388996Z",
+    "exportedAt": "2022-04-05T11:48:46.486731593Z",
     "workflowVersions": [
       {
         "name": "Enrich Indicators with Recorded Future from IDR Alert to Slack",
         "type": "runnable",
         "version": "",
-        "description": "# Description\n\nThis workflow enriches an IDR alert by performing a lookup on all domains, hashes, URLs and IPs in the investigation with Recorded Future and send results on Slack.\n\n# Key Features\n\n* Perform a domain, hash, URL and IP lookup automatically from any IDR alert, send results on Slack\n\n# Requirements\n\n* InsightConnect License\n* Recorded Future API Key and Account Credentials\n\n# Documentation\n\n## Setup\n\n* Import the workflow from the Rapid7 Extension Library and proceed through the Import Workflow wizard in InsightConnect. Import plugins, create or select connections, and rename the workflow as a part of the Import Workflow wizard as necessary.\n* Configure the connections for the Cb Response plugin\n* Activate your workflow\n* Navigate to IDR's alert triggers page at #/automation/alerts\n* Click Create Alert Trigger\n* Select Enrich Indicators with Recorded Future from IDR Alert\n* While Selecting Alerts, check any alerts you would like to automatically enrich\n\n## Technical Details\n\nPlugins utilized by workflow:\n\n|Plugin|Version|Count|\n|----|----|--------|\n|Recorded Future|5.0.1|4|\n\n## Troubleshooting\n\n_There is no troubleshooting information at this time_\n\n# Version History\n\n* 1.0.0 - Initial workflow\n\n# Links\n\n## References\n\n* [Recorded Future API Documentation](https://support.recordedfuture.com/hc/en-us/categories/115000803507-Raw-API)\n",
+        "description": "# Description\n\nThis workflow enriches an IDR alert by performing a lookup on all domains, hashes, URLs and IPs in the investigation with Recorded Future and send results on Slack.\n\n# Key Features\n\n* Perform a domain, hash, URL and IP lookup automatically from any IDR alert, send results on Slack\n\n# Requirements\n\n* InsightConnect License\n* Recorded Future API Key and Account Credentials\n* [Slack](https://docs.rapid7.com/insightconnect/configure-slack-for-chatops)\n\n# Documentation\n\n## Setup\n\nImport the workflow from the Rapid7 Extension Library and proceed through the Import Workflow wizard in InsightConnect. Import plugins, create or select connections, and rename the workflow as a part of the Import Workflow wizard as necessary.\n\nThis workflow is using InsightConnect's Parameters feature. This allows to enter a variable once and use it multiple times throughout the workflow. \n\nThere is one parameter which user needs to configure in order to complete workflow setup:\n\n* Slack Channel or Person Identifier: \nSlack channel or person identifier to send RecordedFuture report. E.g:\n@jdoe - to send a message to person named jdoe\n#integration - to send a message to channel named integration\n\nTo begin, select \"Parameters\" either from the Workflow Control Panel or from the Builder to begin configuration.\n\nAfter configuring the parameters, activate the workflow and create an alert trigger in InsightIDR by following these steps:\n\n1. Open the Automation tab in InsightIDR \n2. Navigate to the Alert Triggers tab \n3. Click Create Alert Trigger \n4. Select Custom InsightConnect Workflows from the Action Category dropdown menu \n5. Select this workflow \n6. Select one or more alerts\n7. Click Add Alert Trigger\n\nFurthermore to use this workflow you need to install and configure the [InsightConnect Slack App](https://docs.rapid7.com/insightconnect/configure-slack-for-chatops/).\n\n## Usage\n\nThe workflow will run automatically any time the selected alert(s) open a new investigation in InsightIDR. Lookup results for each indicator will be send to provided Slack person or channel.\n\n## Technical Details\n\nPlugins utilized by workflow:\n\n|Plugin|Version|Count|\n|----|----|--------|\n|Recorded Future|5.0.1|4|\n\n## Troubleshooting\n\n_There is no troubleshooting information at this time_\n\n# Version History\n\n* 1.0.0 - Initial workflow\n\n# Links\n\n## References\n\n* [Recorded Future API Documentation](https://support.recordedfuture.com/hc/en-us/categories/115000803507-Raw-API)\n* [Slack](https://slack.com)\n",
         "graph": {
           "edges": {
             "02351b24-5132-4944-be62-2d89eaaa1998": {
@@ -25,7 +25,7 @@
               "description": "",
               "parentNodeId": "311bf7e1-96df-4633-a16e-cd2f79e1afff",
               "fromNodeId": "139a14e7-c398-4321-9916-c146fe50d6ce",
-              "toNodeId": ""
+              "toNodeId": "39229947-ccfc-4e17-9dac-a6d367fef081"
             },
             "065aeb93-3161-4be6-a50d-ad67db82245a": {
               "id": "065aeb93-3161-4be6-a50d-ad67db82245a",
@@ -42,6 +42,14 @@
               "parentNodeId": "",
               "fromNodeId": "a2c738a8-1fbd-4023-98e7-82338c77f68b",
               "toNodeId": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4"
+            },
+            "0ba0f8d2-53f2-4077-b7ad-a09722e43f4d": {
+              "id": "0ba0f8d2-53f2-4077-b7ad-a09722e43f4d",
+              "name": "",
+              "description": "",
+              "parentNodeId": "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c",
+              "fromNodeId": "f13a1eb0-d9c3-465e-bfe5-f7240d4462a3",
+              "toNodeId": ""
             },
             "1367fa18-b450-48ea-98b7-18fbb90c1fe5": {
               "id": "1367fa18-b450-48ea-98b7-18fbb90c1fe5",
@@ -91,13 +99,29 @@
               "fromNodeId": "3df8bb9f-ea87-4b9a-8abb-3945ca0edff0",
               "toNodeId": "d06bceb5-16a5-41cb-b9e9-54b9d8df7048"
             },
+            "1fb9b6e3-17b9-4abc-b7e6-ef10e781998e": {
+              "id": "1fb9b6e3-17b9-4abc-b7e6-ef10e781998e",
+              "name": "",
+              "description": "",
+              "parentNodeId": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4",
+              "fromNodeId": "f2221486-1ffc-42ce-923c-0a4fab6e667a",
+              "toNodeId": ""
+            },
+            "2543eac4-6f74-47bd-8137-83885a76ee6c": {
+              "id": "2543eac4-6f74-47bd-8137-83885a76ee6c",
+              "name": "",
+              "description": "",
+              "parentNodeId": "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c",
+              "fromNodeId": "b67332f8-9657-4d09-9b54-6e52113b811c",
+              "toNodeId": ""
+            },
             "271b734b-b547-44ec-9992-a5ad207ba7bd": {
               "id": "271b734b-b547-44ec-9992-a5ad207ba7bd",
               "name": "",
               "description": "",
               "parentNodeId": "a2c738a8-1fbd-4023-98e7-82338c77f68b",
               "fromNodeId": "9ca62c9a-ba7e-435f-8b75-4d136515cd7e",
-              "toNodeId": ""
+              "toNodeId": "3beafcfd-5485-4d93-bcc6-1456fbee7992"
             },
             "2948a185-ba8b-404c-8105-9606949e1f2d": {
               "id": "2948a185-ba8b-404c-8105-9606949e1f2d",
@@ -123,20 +147,28 @@
               "fromNodeId": "1d8529f5-8e3a-4906-9c3a-c1a9c652251a",
               "toNodeId": "8ab32c04-1159-4095-8649-3b92a00fa0de"
             },
-            "3abdfd57-968e-40b1-9d3d-2c774c8eb4a3": {
-              "id": "3abdfd57-968e-40b1-9d3d-2c774c8eb4a3",
-              "name": "",
-              "description": "",
-              "parentNodeId": "",
-              "fromNodeId": "f2fc6319-62a1-472b-96a9-d6607a7901c4",
-              "toNodeId": "9c69c597-b0ea-42b7-8e33-753e56b4a74c"
-            },
             "4e8f8182-885a-40e6-94dd-a4c288dcbfb0": {
               "id": "4e8f8182-885a-40e6-94dd-a4c288dcbfb0",
               "name": "",
               "description": "",
               "parentNodeId": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4",
               "fromNodeId": "d429a573-3818-4153-b420-b07dceedf681",
+              "toNodeId": "f2221486-1ffc-42ce-923c-0a4fab6e667a"
+            },
+            "4f11fb81-12b5-4e08-acd8-5bf805fcc11e": {
+              "id": "4f11fb81-12b5-4e08-acd8-5bf805fcc11e",
+              "name": "",
+              "description": "",
+              "parentNodeId": "a2c738a8-1fbd-4023-98e7-82338c77f68b",
+              "fromNodeId": "e7ffdf6d-e8ef-48d3-b35a-d9a1352459cc",
+              "toNodeId": ""
+            },
+            "56ab6695-db3d-4d44-8284-050db8382f5f": {
+              "id": "56ab6695-db3d-4d44-8284-050db8382f5f",
+              "name": "",
+              "description": "",
+              "parentNodeId": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4",
+              "fromNodeId": "e232a712-58ba-4d98-9d31-46913a254443",
               "toNodeId": ""
             },
             "57dfe613-bb14-499f-9c5d-049248ff1b48": {
@@ -153,7 +185,7 @@
               "description": "",
               "parentNodeId": "",
               "fromNodeId": "eb83e890-c81a-409e-83d0-64b310c68b3f",
-              "toNodeId": "f2fc6319-62a1-472b-96a9-d6607a7901c4"
+              "toNodeId": ""
             },
             "62c685d1-84d5-4e30-8287-ade0d759e895": {
               "id": "62c685d1-84d5-4e30-8287-ade0d759e895",
@@ -161,7 +193,7 @@
               "description": "",
               "parentNodeId": "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c",
               "fromNodeId": "adae9ae6-d997-421a-806a-b7908d74aeda",
-              "toNodeId": ""
+              "toNodeId": "b67332f8-9657-4d09-9b54-6e52113b811c"
             },
             "63ff50ea-8540-439b-9992-98d0cbb844ae": {
               "id": "63ff50ea-8540-439b-9992-98d0cbb844ae",
@@ -178,6 +210,14 @@
               "parentNodeId": "",
               "fromNodeId": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4",
               "toNodeId": "311bf7e1-96df-4633-a16e-cd2f79e1afff"
+            },
+            "6fa3ae98-73cb-4326-96f5-a388d0851408": {
+              "id": "6fa3ae98-73cb-4326-96f5-a388d0851408",
+              "name": "",
+              "description": "",
+              "parentNodeId": "a2c738a8-1fbd-4023-98e7-82338c77f68b",
+              "fromNodeId": "3beafcfd-5485-4d93-bcc6-1456fbee7992",
+              "toNodeId": ""
             },
             "70e34d26-35d2-4f8d-884c-3bb30e5b7a15": {
               "id": "70e34d26-35d2-4f8d-884c-3bb30e5b7a15",
@@ -217,6 +257,14 @@
               "description": "",
               "parentNodeId": "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c",
               "fromNodeId": "1926ea05-399b-4bec-82dc-6983cb8ccb10",
+              "toNodeId": "f13a1eb0-d9c3-465e-bfe5-f7240d4462a3"
+            },
+            "8d136ce1-dd6f-4b62-ae51-28deef8d2041": {
+              "id": "8d136ce1-dd6f-4b62-ae51-28deef8d2041",
+              "name": "",
+              "description": "",
+              "parentNodeId": "311bf7e1-96df-4633-a16e-cd2f79e1afff",
+              "fromNodeId": "89dc36dc-6163-45bf-8de6-1f91f0b99a0e",
               "toNodeId": ""
             },
             "928e55df-a3ca-4f44-a4a2-7892f64b01bc": {
@@ -225,7 +273,7 @@
               "description": "",
               "parentNodeId": "311bf7e1-96df-4633-a16e-cd2f79e1afff",
               "fromNodeId": "91080f90-a552-4664-853c-5ff65344bdf9",
-              "toNodeId": ""
+              "toNodeId": "46367311-b19b-4acd-9106-6cc75f958ad6"
             },
             "93cc71f2-d7cd-4ac3-b8d2-1bba78d78b0d": {
               "id": "93cc71f2-d7cd-4ac3-b8d2-1bba78d78b0d",
@@ -250,14 +298,6 @@
               "parentNodeId": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4",
               "fromNodeId": "ff66f5bf-907d-4a17-acdf-3a152ff0cc97",
               "toNodeId": "d429a573-3818-4153-b420-b07dceedf681"
-            },
-            "a544ecf4-3f1e-4d1a-ac7b-b1eb9ec3cde4": {
-              "id": "a544ecf4-3f1e-4d1a-ac7b-b1eb9ec3cde4",
-              "name": "",
-              "description": "",
-              "parentNodeId": "",
-              "fromNodeId": "9c69c597-b0ea-42b7-8e33-753e56b4a74c",
-              "toNodeId": ""
             },
             "ad9c135d-54df-435e-99c0-ca9700fb7ab5": {
               "id": "ad9c135d-54df-435e-99c0-ca9700fb7ab5",
@@ -299,13 +339,21 @@
               "fromNodeId": "63bd3eaf-f333-4449-94f5-ba0d66362136",
               "toNodeId": "139a14e7-c398-4321-9916-c146fe50d6ce"
             },
+            "c43f92e9-cf03-4603-834a-98162e39ded4": {
+              "id": "c43f92e9-cf03-4603-834a-98162e39ded4",
+              "name": "",
+              "description": "",
+              "parentNodeId": "311bf7e1-96df-4633-a16e-cd2f79e1afff",
+              "fromNodeId": "39229947-ccfc-4e17-9dac-a6d367fef081",
+              "toNodeId": ""
+            },
             "cf2257bb-aa38-4ee8-92fe-c38587837635": {
               "id": "cf2257bb-aa38-4ee8-92fe-c38587837635",
               "name": "",
               "description": "",
               "parentNodeId": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4",
               "fromNodeId": "2147b802-0c27-4386-a4c4-86bc06efe404",
-              "toNodeId": ""
+              "toNodeId": "e232a712-58ba-4d98-9d31-46913a254443"
             },
             "d9ecbe40-6f27-4e6a-b8d9-ec1dc204a58e": {
               "id": "d9ecbe40-6f27-4e6a-b8d9-ec1dc204a58e",
@@ -313,7 +361,7 @@
               "description": "",
               "parentNodeId": "a2c738a8-1fbd-4023-98e7-82338c77f68b",
               "fromNodeId": "d06bceb5-16a5-41cb-b9e9-54b9d8df7048",
-              "toNodeId": ""
+              "toNodeId": "e7ffdf6d-e8ef-48d3-b35a-d9a1352459cc"
             },
             "db344bb1-1ea8-4268-9ab1-feeb39b53ef0": {
               "id": "db344bb1-1ea8-4268-9ab1-feeb39b53ef0",
@@ -322,6 +370,14 @@
               "parentNodeId": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4",
               "fromNodeId": "9d871c24-e98d-451e-9c66-0bca88b67608",
               "toNodeId": "8e21b464-8fc3-4b2c-ae82-c3408e2be2f5"
+            },
+            "e5fb87b4-cc32-4533-9b1a-46ff9b269d66": {
+              "id": "e5fb87b4-cc32-4533-9b1a-46ff9b269d66",
+              "name": "",
+              "description": "",
+              "parentNodeId": "",
+              "fromNodeId": "1ac6c7d1-a0c4-4954-9277-676d21257941",
+              "toNodeId": "a2c738a8-1fbd-4023-98e7-82338c77f68b"
             },
             "e80b750f-3b56-4f73-bd8f-f6ad65feb9d4": {
               "id": "e80b750f-3b56-4f73-bd8f-f6ad65feb9d4",
@@ -353,7 +409,7 @@
               "description": "",
               "parentNodeId": "311bf7e1-96df-4633-a16e-cd2f79e1afff",
               "fromNodeId": "03d3aaae-6d78-40e4-a269-b1b3032f60b5",
-              "toNodeId": ""
+              "toNodeId": "89dc36dc-6163-45bf-8de6-1f91f0b99a0e"
             },
             "fab39552-478a-4853-a277-dd4b64bc0707": {
               "id": "fab39552-478a-4853-a277-dd4b64bc0707",
@@ -361,7 +417,15 @@
               "description": "",
               "parentNodeId": "",
               "fromNodeId": "ab4df1ad-bbf4-4021-a6d4-f97ded948a48",
-              "toNodeId": "a2c738a8-1fbd-4023-98e7-82338c77f68b"
+              "toNodeId": "1ac6c7d1-a0c4-4954-9277-676d21257941"
+            },
+            "fb0ff09f-38bc-4478-9b59-28ba0b9eae93": {
+              "id": "fb0ff09f-38bc-4478-9b59-28ba0b9eae93",
+              "name": "",
+              "description": "",
+              "parentNodeId": "311bf7e1-96df-4633-a16e-cd2f79e1afff",
+              "fromNodeId": "46367311-b19b-4acd-9106-6cc75f958ad6",
+              "toNodeId": ""
             },
             "fe9ef89a-04d9-44d4-8d14-d6f8f3ac0721": {
               "id": "fe9ef89a-04d9-44d4-8d14-d6f8f3ac0721",
@@ -389,6 +453,10 @@
               "id": "1926ea05-399b-4bec-82dc-6983cb8ccb10",
               "parentNodeId": "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c"
             },
+            "1ac6c7d1-a0c4-4954-9277-676d21257941": {
+              "id": "1ac6c7d1-a0c4-4954-9277-676d21257941",
+              "parentNodeId": ""
+            },
             "1d8529f5-8e3a-4906-9c3a-c1a9c652251a": {
               "id": "1d8529f5-8e3a-4906-9c3a-c1a9c652251a",
               "parentNodeId": "a2c738a8-1fbd-4023-98e7-82338c77f68b"
@@ -401,9 +469,21 @@
               "id": "311bf7e1-96df-4633-a16e-cd2f79e1afff",
               "parentNodeId": ""
             },
+            "39229947-ccfc-4e17-9dac-a6d367fef081": {
+              "id": "39229947-ccfc-4e17-9dac-a6d367fef081",
+              "parentNodeId": "311bf7e1-96df-4633-a16e-cd2f79e1afff"
+            },
+            "3beafcfd-5485-4d93-bcc6-1456fbee7992": {
+              "id": "3beafcfd-5485-4d93-bcc6-1456fbee7992",
+              "parentNodeId": "a2c738a8-1fbd-4023-98e7-82338c77f68b"
+            },
             "3df8bb9f-ea87-4b9a-8abb-3945ca0edff0": {
               "id": "3df8bb9f-ea87-4b9a-8abb-3945ca0edff0",
               "parentNodeId": "a2c738a8-1fbd-4023-98e7-82338c77f68b"
+            },
+            "46367311-b19b-4acd-9106-6cc75f958ad6": {
+              "id": "46367311-b19b-4acd-9106-6cc75f958ad6",
+              "parentNodeId": "311bf7e1-96df-4633-a16e-cd2f79e1afff"
             },
             "5950b8b1-9fda-4e68-a4aa-3d0997fead75": {
               "id": "5950b8b1-9fda-4e68-a4aa-3d0997fead75",
@@ -424,6 +504,10 @@
             "7d754d05-604c-48b4-bf0f-09d84cc72e80": {
               "id": "7d754d05-604c-48b4-bf0f-09d84cc72e80",
               "parentNodeId": ""
+            },
+            "89dc36dc-6163-45bf-8de6-1f91f0b99a0e": {
+              "id": "89dc36dc-6163-45bf-8de6-1f91f0b99a0e",
+              "parentNodeId": "311bf7e1-96df-4633-a16e-cd2f79e1afff"
             },
             "8ab32c04-1159-4095-8649-3b92a00fa0de": {
               "id": "8ab32c04-1159-4095-8649-3b92a00fa0de",
@@ -448,10 +532,6 @@
             "99700664-18f7-49cc-949b-bac375368c01": {
               "id": "99700664-18f7-49cc-949b-bac375368c01",
               "parentNodeId": "311bf7e1-96df-4633-a16e-cd2f79e1afff"
-            },
-            "9c69c597-b0ea-42b7-8e33-753e56b4a74c": {
-              "id": "9c69c597-b0ea-42b7-8e33-753e56b4a74c",
-              "parentNodeId": ""
             },
             "9ca62c9a-ba7e-435f-8b75-4d136515cd7e": {
               "id": "9ca62c9a-ba7e-435f-8b75-4d136515cd7e",
@@ -485,6 +565,10 @@
               "id": "adae9ae6-d997-421a-806a-b7908d74aeda",
               "parentNodeId": "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c"
             },
+            "b67332f8-9657-4d09-9b54-6e52113b811c": {
+              "id": "b67332f8-9657-4d09-9b54-6e52113b811c",
+              "parentNodeId": "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c"
+            },
             "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c": {
               "id": "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c",
               "parentNodeId": "eb83e890-c81a-409e-83d0-64b310c68b3f"
@@ -497,13 +581,25 @@
               "id": "d429a573-3818-4153-b420-b07dceedf681",
               "parentNodeId": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4"
             },
+            "e232a712-58ba-4d98-9d31-46913a254443": {
+              "id": "e232a712-58ba-4d98-9d31-46913a254443",
+              "parentNodeId": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4"
+            },
+            "e7ffdf6d-e8ef-48d3-b35a-d9a1352459cc": {
+              "id": "e7ffdf6d-e8ef-48d3-b35a-d9a1352459cc",
+              "parentNodeId": "a2c738a8-1fbd-4023-98e7-82338c77f68b"
+            },
             "eb83e890-c81a-409e-83d0-64b310c68b3f": {
               "id": "eb83e890-c81a-409e-83d0-64b310c68b3f",
               "parentNodeId": ""
             },
-            "f2fc6319-62a1-472b-96a9-d6607a7901c4": {
-              "id": "f2fc6319-62a1-472b-96a9-d6607a7901c4",
-              "parentNodeId": ""
+            "f13a1eb0-d9c3-465e-bfe5-f7240d4462a3": {
+              "id": "f13a1eb0-d9c3-465e-bfe5-f7240d4462a3",
+              "parentNodeId": "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c"
+            },
+            "f2221486-1ffc-42ce-923c-0a4fab6e667a": {
+              "id": "f2221486-1ffc-42ce-923c-0a4fab6e667a",
+              "parentNodeId": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4"
             },
             "ff66f5bf-907d-4a17-acdf-3a152ff0cc97": {
               "id": "ff66f5bf-907d-4a17-acdf-3a152ff0cc97",
@@ -536,7 +632,7 @@
             "type": "trigger",
             "continueOnFailure": false,
             "isDisabled": false,
-            "triggerId": "257cc468-ca32-4f49-a2bd-8b84f5167a6b",
+            "triggerId": "ef1779db-587f-4eec-854e-2b5d0c3c3005",
             "defaultInputJSONSchema": {
               "definitions": {
                 "actor": {
@@ -1131,6 +1227,86 @@
             "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/artifact.svg",
             "connectionType": "NONE"
           },
+          "1ac6c7d1-a0c4-4954-9277-676d21257941": {
+            "nodeId": "1ac6c7d1-a0c4-4954-9277-676d21257941",
+            "name": "Send IDR Alert Input Summary to Slack",
+            "type": "action_chatops",
+            "continueOnFailure": false,
+            "isDisabled": false,
+            "parameters": {
+              "input": {
+                "attachments": [],
+                "message": "### IDR Alert Input Summary\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[name]}}\n*Name:* {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[name]}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[description]}}\n*Description:* {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[description]}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[investigationId]}}\n*Investigation ID:* {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[investigationId]}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[type]}}\n*Type:* {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[type]}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[link]}}\n*Link:* [{{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[link]}}]({{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[link]}})\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[timestamp]}}\n*Timestamp:* {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[timestamp]}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[domains]}}\n*Alert Domains*\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[domains]}}\n+ {{this}}\n{{/each}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[ipAddresses]}}\n*Alert IP Addresses*\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[ipAddresses]}}\n{{#if ip}}\n* {{ip}} ({{type}})\n{{/if}}\n{{/each}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[urls]}}\n*Alert URLs*\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[urls]}}\n+ {{this}}\n{{/each}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[processes]}}\n*Alert Process Hashes*\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[processes]}}\n{{#if name}}\nAlert Process: {{name}}\n{{/if}}\n{{#if processId}}\n+ Alert Process ID: {{processId}}\n{{/if}}\n{{#if cmdLine}}\n  + Command Line: {{cmdLine}}\n{{/if}}\n{{#if assetId}}\n  + Asset ID: {{assetId}}\n{{/if}}\n{{#if hashes}}\n{{#each hashes}}\n  + {{hash}} ({{type}})\n\n{{/each}}\n{{/if}}\n{{/each}}\n{{/if}}\n",
+                "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
+                "thread_ts": ""
+              }
+            },
+            "defaultInputJSONSchema": {
+              "properties": {
+                "attachments": {
+                  "description": "JSON array of attachments - see Help for documentation",
+                  "items": {
+                    "type": "object"
+                  },
+                  "order": 4,
+                  "title": "Attachments",
+                  "type": "array"
+                },
+                "message": {
+                  "description": "Message to send",
+                  "order": 3,
+                  "title": "Message",
+                  "type": "string"
+                },
+                "recipient": {
+                  "description": "Channels begin with # (e.g. #channel) and usernames begin with @ (e.g. @username)",
+                  "order": 1,
+                  "title": "Enter #channel or @username",
+                  "type": "string"
+                },
+                "thread_ts": {
+                  "description": "Select timestamp output variable from parent message step",
+                  "order": 2,
+                  "title": "To post in a thread, select parent message timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "recipient"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "defaultOutputJSONSchema": {
+              "properties": {
+                "channel_id": {
+                  "description": "ChannelID of successful message",
+                  "order": 1,
+                  "title": "Channel ID",
+                  "type": "string"
+                },
+                "parent_message_timestamp": {
+                  "description": "The timestamp of the parent message or of the current message if there is no parent. Used to post messages to a thread.",
+                  "order": 3,
+                  "title": "Parent Message Timestamp",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "description": "Timestamp of successful message",
+                  "order": 2,
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "title": "Variables",
+              "type": "object"
+            },
+            "outputJSONSchema": null,
+            "defaultImageData": "",
+            "connectionType": "NONE",
+            "chatOpsAppName": "slack",
+            "chatOpsIdentifier": "post_message"
+          },
           "1d8529f5-8e3a-4906-9c3a-c1a9c652251a": {
             "nodeId": "1d8529f5-8e3a-4906-9c3a-c1a9c652251a",
             "name": "Is Domains Array Empty?",
@@ -1193,45 +1369,7 @@
             "continueOnFailure": false,
             "isDisabled": false,
             "parameters": {
-              "customOutput": [
-                {
-                  "input": {
-                    "expression": {
-                      "left": {
-                        "left": {
-                          "name": "63bd3eaf-f333-4449-94f5-ba0d66362136.path",
-                          "type": "variable"
-                        },
-                        "op": "==",
-                        "right": {
-                          "type": "literal",
-                          "value": "External IP"
-                        },
-                        "type": "binary"
-                      },
-                      "op": "AND",
-                      "right": {
-                        "left": {
-                          "name": "99700664-18f7-49cc-949b-bac375368c01.path",
-                          "type": "variable"
-                        },
-                        "op": "==",
-                        "right": {
-                          "type": "literal",
-                          "value": "IP Was Found"
-                        },
-                        "type": "binary"
-                      },
-                      "type": "binary"
-                    },
-                    "expressionText": "{{[63bd3eaf-f333-4449-94f5-ba0d66362136].[path]}}==\"External IP\" AND {{[99700664-18f7-49cc-949b-bac375368c01].[path]}}==\"IP Was Found\"",
-                    "value": "{{[03d3aaae-6d78-40e4-a269-b1b3032f60b5].[content]}}",
-                    "valueType": "string"
-                  },
-                  "name": "IP Address Artifacts",
-                  "outputType": "array"
-                }
-              ],
+              "customOutput": [],
               "innerEdgeId": "1367fa18-b450-48ea-98b7-18fbb90c1fe5",
               "nextEdgeId": "93cc71f2-d7cd-4ac3-b8d2-1bba78d78b0d",
               "repeatVariable": "{{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[ipAddresses]}}"
@@ -1239,21 +1377,172 @@
             "defaultInputJSONSchema": null,
             "defaultOutputJSONSchema": null,
             "outputJSONSchema": {
-              "properties": {
-                "IP Address Artifacts": {
-                  "description": "Custom output: \"IP Address Artifacts\"",
-                  "items": {
-                    "type": "string"
-                  },
-                  "title": "IP Address Artifacts",
-                  "type": "array"
-                }
-              },
+              "properties": {},
               "title": "Variables",
               "type": "object"
             },
             "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/loop.svg",
             "connectionType": "NONE"
+          },
+          "39229947-ccfc-4e17-9dac-a6d367fef081": {
+            "nodeId": "39229947-ccfc-4e17-9dac-a6d367fef081",
+            "name": "Send Internal IP Output to Slack",
+            "type": "action_chatops",
+            "continueOnFailure": false,
+            "isDisabled": false,
+            "parameters": {
+              "input": {
+                "attachments": [],
+                "message": "*IP Address is internal. No lookup is performed.*\n\n{{[311bf7e1-96df-4633-a16e-cd2f79e1afff].[$item].[ip]}}",
+                "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
+                "thread_ts": "{{[1ac6c7d1-a0c4-4954-9277-676d21257941].[timestamp]}}"
+              }
+            },
+            "defaultInputJSONSchema": {
+              "properties": {
+                "attachments": {
+                  "description": "JSON array of attachments - see Help for documentation",
+                  "items": {
+                    "type": "object"
+                  },
+                  "order": 4,
+                  "title": "Attachments",
+                  "type": "array"
+                },
+                "message": {
+                  "description": "Message to send",
+                  "order": 3,
+                  "title": "Message",
+                  "type": "string"
+                },
+                "recipient": {
+                  "description": "Channels begin with # (e.g. #channel) and usernames begin with @ (e.g. @username)",
+                  "order": 1,
+                  "title": "Enter #channel or @username",
+                  "type": "string"
+                },
+                "thread_ts": {
+                  "description": "Select timestamp output variable from parent message step",
+                  "order": 2,
+                  "title": "To post in a thread, select parent message timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "recipient"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "defaultOutputJSONSchema": {
+              "properties": {
+                "channel_id": {
+                  "description": "ChannelID of successful message",
+                  "order": 1,
+                  "title": "Channel ID",
+                  "type": "string"
+                },
+                "parent_message_timestamp": {
+                  "description": "The timestamp of the parent message or of the current message if there is no parent. Used to post messages to a thread.",
+                  "order": 3,
+                  "title": "Parent Message Timestamp",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "description": "Timestamp of successful message",
+                  "order": 2,
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "title": "Variables",
+              "type": "object"
+            },
+            "outputJSONSchema": null,
+            "defaultImageData": "",
+            "connectionType": "NONE",
+            "chatOpsAppName": "slack",
+            "chatOpsIdentifier": "post_message"
+          },
+          "3beafcfd-5485-4d93-bcc6-1456fbee7992": {
+            "nodeId": "3beafcfd-5485-4d93-bcc6-1456fbee7992",
+            "name": "Send Recorded Future Domain Not Found to Slack",
+            "type": "action_chatops",
+            "continueOnFailure": false,
+            "isDisabled": false,
+            "parameters": {
+              "input": {
+                "attachments": [],
+                "message": "*## Domain was not found in Recorded Future*\n\n{{[a2c738a8-1fbd-4023-98e7-82338c77f68b].[$item]}}",
+                "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
+                "thread_ts": "{{[1ac6c7d1-a0c4-4954-9277-676d21257941].[timestamp]}}"
+              }
+            },
+            "defaultInputJSONSchema": {
+              "properties": {
+                "attachments": {
+                  "description": "JSON array of attachments - see Help for documentation",
+                  "items": {
+                    "type": "object"
+                  },
+                  "order": 4,
+                  "title": "Attachments",
+                  "type": "array"
+                },
+                "message": {
+                  "description": "Message to send",
+                  "order": 3,
+                  "title": "Message",
+                  "type": "string"
+                },
+                "recipient": {
+                  "description": "Channels begin with # (e.g. #channel) and usernames begin with @ (e.g. @username)",
+                  "order": 1,
+                  "title": "Enter #channel or @username",
+                  "type": "string"
+                },
+                "thread_ts": {
+                  "description": "Select timestamp output variable from parent message step",
+                  "order": 2,
+                  "title": "To post in a thread, select parent message timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "recipient"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "defaultOutputJSONSchema": {
+              "properties": {
+                "channel_id": {
+                  "description": "ChannelID of successful message",
+                  "order": 1,
+                  "title": "Channel ID",
+                  "type": "string"
+                },
+                "parent_message_timestamp": {
+                  "description": "The timestamp of the parent message or of the current message if there is no parent. Used to post messages to a thread.",
+                  "order": 3,
+                  "title": "Parent Message Timestamp",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "description": "Timestamp of successful message",
+                  "order": 2,
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "title": "Variables",
+              "type": "object"
+            },
+            "outputJSONSchema": null,
+            "defaultImageData": "",
+            "connectionType": "NONE",
+            "chatOpsAppName": "slack",
+            "chatOpsIdentifier": "post_message"
           },
           "3df8bb9f-ea87-4b9a-8abb-3945ca0edff0": {
             "nodeId": "3df8bb9f-ea87-4b9a-8abb-3945ca0edff0",
@@ -1284,6 +1573,86 @@
             "outputJSONSchema": null,
             "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/automated-decision.svg",
             "connectionType": "NONE"
+          },
+          "46367311-b19b-4acd-9106-6cc75f958ad6": {
+            "nodeId": "46367311-b19b-4acd-9106-6cc75f958ad6",
+            "name": "Send IP Was Not Found to Slack",
+            "type": "action_chatops",
+            "continueOnFailure": false,
+            "isDisabled": false,
+            "parameters": {
+              "input": {
+                "attachments": [],
+                "message": "*## IP Address Information was not found in Recorded Future.*\n\n{{[311bf7e1-96df-4633-a16e-cd2f79e1afff].[$item].[ip]}}",
+                "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
+                "thread_ts": "{{[1ac6c7d1-a0c4-4954-9277-676d21257941].[timestamp]}}"
+              }
+            },
+            "defaultInputJSONSchema": {
+              "properties": {
+                "attachments": {
+                  "description": "JSON array of attachments - see Help for documentation",
+                  "items": {
+                    "type": "object"
+                  },
+                  "order": 4,
+                  "title": "Attachments",
+                  "type": "array"
+                },
+                "message": {
+                  "description": "Message to send",
+                  "order": 3,
+                  "title": "Message",
+                  "type": "string"
+                },
+                "recipient": {
+                  "description": "Channels begin with # (e.g. #channel) and usernames begin with @ (e.g. @username)",
+                  "order": 1,
+                  "title": "Enter #channel or @username",
+                  "type": "string"
+                },
+                "thread_ts": {
+                  "description": "Select timestamp output variable from parent message step",
+                  "order": 2,
+                  "title": "To post in a thread, select parent message timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "recipient"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "defaultOutputJSONSchema": {
+              "properties": {
+                "channel_id": {
+                  "description": "ChannelID of successful message",
+                  "order": 1,
+                  "title": "Channel ID",
+                  "type": "string"
+                },
+                "parent_message_timestamp": {
+                  "description": "The timestamp of the parent message or of the current message if there is no parent. Used to post messages to a thread.",
+                  "order": 3,
+                  "title": "Parent Message Timestamp",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "description": "Timestamp of successful message",
+                  "order": 2,
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "title": "Variables",
+              "type": "object"
+            },
+            "outputJSONSchema": null,
+            "defaultImageData": "",
+            "connectionType": "NONE",
+            "chatOpsAppName": "slack",
+            "chatOpsIdentifier": "post_message"
           },
           "5950b8b1-9fda-4e68-a4aa-3d0997fead75": {
             "nodeId": "5950b8b1-9fda-4e68-a4aa-3d0997fead75",
@@ -2274,6 +2643,86 @@
             "outputJSONSchema": null,
             "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/automated-decision.svg",
             "connectionType": "NONE"
+          },
+          "89dc36dc-6163-45bf-8de6-1f91f0b99a0e": {
+            "nodeId": "89dc36dc-6163-45bf-8de6-1f91f0b99a0e",
+            "name": "Send Recorded Future IP Lookup Output to Slack",
+            "type": "action_chatops",
+            "continueOnFailure": false,
+            "isDisabled": false,
+            "parameters": {
+              "input": {
+                "attachments": [],
+                "message": "## Recorded Future IP Lookup Results for {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[entity].[name]}}\n\n### Entity\n*ID*: {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[entity].[id]}}\n*Name*: {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[entity].[name]}}\n*Type*: {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[entity].[type]}}\n*Description*: {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[entity].[description]}}\n\n### Risk\n*Risk Summary*: {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[risk].[riskSummary]}}\n*Risk Score*: {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[risk].[score]}}\n*Risk Rules*: {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[risk].[rules]}}\n*Risk Criticality*: {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[risk].[criticality]}}\n*Criticality Label*: {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[risk].[criticalityLabel]}}\n*Evidence Details*:\n{{#each [5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[risk].[evidenceDetails]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Timestamps\n*First Seen*: {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[timestamps].[firstSeen]}}\n*Last Seen*: {{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[timestamps].[lastSeen]}}\n\n### Found\n{{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[found]}}\n\n### Location\n{{#each [5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[location]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Metrics\n{{#each [5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[metrics]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### IntelCard\n{{[5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[intelCard]}}\n\n### Sightings\n{{#each [5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[sightings]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Threat Lists\n{{#each [5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[threatLists]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Analyst Notes\n {{#each [5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[analystNotes]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Risky CIDRIPs\n{{#each [5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[riskyCIDRIPs]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Enterprise Lists\n{{#each [5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[enterpriseLists]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Related Entities\n {{#each [5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[relatedEntities]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Counts\n{{#each [5950b8b1-9fda-4e68-a4aa-3d0997fead75].[data].[counts]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}",
+                "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
+                "thread_ts": "{{[1ac6c7d1-a0c4-4954-9277-676d21257941].[timestamp]}}"
+              }
+            },
+            "defaultInputJSONSchema": {
+              "properties": {
+                "attachments": {
+                  "description": "JSON array of attachments - see Help for documentation",
+                  "items": {
+                    "type": "object"
+                  },
+                  "order": 4,
+                  "title": "Attachments",
+                  "type": "array"
+                },
+                "message": {
+                  "description": "Message to send",
+                  "order": 3,
+                  "title": "Message",
+                  "type": "string"
+                },
+                "recipient": {
+                  "description": "Channels begin with # (e.g. #channel) and usernames begin with @ (e.g. @username)",
+                  "order": 1,
+                  "title": "Enter #channel or @username",
+                  "type": "string"
+                },
+                "thread_ts": {
+                  "description": "Select timestamp output variable from parent message step",
+                  "order": 2,
+                  "title": "To post in a thread, select parent message timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "recipient"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "defaultOutputJSONSchema": {
+              "properties": {
+                "channel_id": {
+                  "description": "ChannelID of successful message",
+                  "order": 1,
+                  "title": "Channel ID",
+                  "type": "string"
+                },
+                "parent_message_timestamp": {
+                  "description": "The timestamp of the parent message or of the current message if there is no parent. Used to post messages to a thread.",
+                  "order": 3,
+                  "title": "Parent Message Timestamp",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "description": "Timestamp of successful message",
+                  "order": 2,
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "title": "Variables",
+              "type": "object"
+            },
+            "outputJSONSchema": null,
+            "defaultImageData": "",
+            "connectionType": "NONE",
+            "chatOpsAppName": "slack",
+            "chatOpsIdentifier": "post_message"
           },
           "8ab32c04-1159-4095-8649-3b92a00fa0de": {
             "nodeId": "8ab32c04-1159-4095-8649-3b92a00fa0de",
@@ -3581,86 +4030,6 @@
             "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/automated-decision.svg",
             "connectionType": "NONE"
           },
-          "9c69c597-b0ea-42b7-8e33-753e56b4a74c": {
-            "nodeId": "9c69c597-b0ea-42b7-8e33-753e56b4a74c",
-            "name": "Send Slack Message",
-            "type": "action_chatops",
-            "continueOnFailure": false,
-            "isDisabled": false,
-            "parameters": {
-              "input": {
-                "attachments": [],
-                "message": "{{#each [a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4].[URLs Artifacts]}}\n{{this}}\n\n\n\n{{/each}}\n{{#each [a2c738a8-1fbd-4023-98e7-82338c77f68b].[Domain Artifacts]}}\n{{this}}\n\n\n\n{{/each}}\n{{#each [eb83e890-c81a-409e-83d0-64b310c68b3f].[Hash Artifacts]}}\n{{#each this}}\n{{this}}\n{{/each}}\n\n\n\n{{/each}}\n{{#each [311bf7e1-96df-4633-a16e-cd2f79e1afff].[IP Address Artifacts]}}\n{{this}}\n\n\n\n{{/each}}",
-                "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
-                "thread_ts": ""
-              }
-            },
-            "defaultInputJSONSchema": {
-              "properties": {
-                "attachments": {
-                  "description": "JSON array of attachments - see Help for documentation",
-                  "items": {
-                    "type": "object"
-                  },
-                  "order": 4,
-                  "title": "Attachments",
-                  "type": "array"
-                },
-                "message": {
-                  "description": "Message to send",
-                  "order": 3,
-                  "title": "Message",
-                  "type": "string"
-                },
-                "recipient": {
-                  "description": "Channels begin with # (e.g. #channel) and usernames begin with @ (e.g. @username)",
-                  "order": 1,
-                  "title": "Enter #channel or @username",
-                  "type": "string"
-                },
-                "thread_ts": {
-                  "description": "Select timestamp output variable from parent message step",
-                  "order": 2,
-                  "title": "To post in a thread, select parent message timestamp",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "recipient"
-              ],
-              "title": "Variables",
-              "type": "object"
-            },
-            "defaultOutputJSONSchema": {
-              "properties": {
-                "channel_id": {
-                  "description": "ChannelID of successful message",
-                  "order": 1,
-                  "title": "Channel ID",
-                  "type": "string"
-                },
-                "parent_message_timestamp": {
-                  "description": "The timestamp of the parent message or of the current message if there is no parent. Used to post messages to a thread.",
-                  "order": 3,
-                  "title": "Parent Message Timestamp",
-                  "type": "string"
-                },
-                "timestamp": {
-                  "description": "Timestamp of successful message",
-                  "order": 2,
-                  "title": "Timestamp",
-                  "type": "string"
-                }
-              },
-              "title": "Variables",
-              "type": "object"
-            },
-            "outputJSONSchema": null,
-            "defaultImageData": "",
-            "connectionType": "NONE",
-            "chatOpsAppName": "slack",
-            "chatOpsIdentifier": "post_message"
-          },
           "9ca62c9a-ba7e-435f-8b75-4d136515cd7e": {
             "nodeId": "9ca62c9a-ba7e-435f-8b75-4d136515cd7e",
             "name": "Domain Was Not Found Artifact",
@@ -4390,29 +4759,7 @@
             "continueOnFailure": false,
             "isDisabled": false,
             "parameters": {
-              "customOutput": [
-                {
-                  "input": {
-                    "expression": {
-                      "left": {
-                        "name": "3df8bb9f-ea87-4b9a-8abb-3945ca0edff0.path",
-                        "type": "variable"
-                      },
-                      "op": "==",
-                      "right": {
-                        "type": "literal",
-                        "value": "Domain Was Found"
-                      },
-                      "type": "binary"
-                    },
-                    "expressionText": "{{[3df8bb9f-ea87-4b9a-8abb-3945ca0edff0].[path]}}==\"Domain Was Found\"",
-                    "value": "{{[d06bceb5-16a5-41cb-b9e9-54b9d8df7048].[content]}}",
-                    "valueType": "string"
-                  },
-                  "name": "Domain Artifacts",
-                  "outputType": "array"
-                }
-              ],
+              "customOutput": [],
               "innerEdgeId": "7ac869cd-b175-4567-911d-8645e9fcf1eb",
               "nextEdgeId": "0abff284-dfdc-48da-822d-fe3f2b39e0bc",
               "repeatVariable": "{{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[domains]}}"
@@ -4420,16 +4767,7 @@
             "defaultInputJSONSchema": null,
             "defaultOutputJSONSchema": null,
             "outputJSONSchema": {
-              "properties": {
-                "Domain Artifacts": {
-                  "description": "Custom output: \"Domain Artifacts\"",
-                  "items": {
-                    "type": "string"
-                  },
-                  "title": "Domain Artifacts",
-                  "type": "array"
-                }
-              },
+              "properties": {},
               "title": "Variables",
               "type": "object"
             },
@@ -4443,29 +4781,7 @@
             "continueOnFailure": false,
             "isDisabled": false,
             "parameters": {
-              "customOutput": [
-                {
-                  "input": {
-                    "expression": {
-                      "left": {
-                        "name": "ff66f5bf-907d-4a17-acdf-3a152ff0cc97.path",
-                        "type": "variable"
-                      },
-                      "op": "==",
-                      "right": {
-                        "type": "literal",
-                        "value": "URL Was Found"
-                      },
-                      "type": "binary"
-                    },
-                    "expressionText": "{{[ff66f5bf-907d-4a17-acdf-3a152ff0cc97].[path]}}==\"URL Was Found\"",
-                    "value": "{{[2147b802-0c27-4386-a4c4-86bc06efe404].[content]}}",
-                    "valueType": "string"
-                  },
-                  "name": "URLs Artifacts",
-                  "outputType": "array"
-                }
-              ],
+              "customOutput": [],
               "innerEdgeId": "f4e06ddf-9dcb-4430-8b8d-4b7cad871fdb",
               "nextEdgeId": "6535a91b-6fd8-4fcf-8d10-d96c76a2e7ed",
               "repeatVariable": "{{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[urls]}}"
@@ -4473,16 +4789,7 @@
             "defaultInputJSONSchema": null,
             "defaultOutputJSONSchema": null,
             "outputJSONSchema": {
-              "properties": {
-                "URLs Artifacts": {
-                  "description": "Custom output: \"URLs Artifacts\"",
-                  "items": {
-                    "type": "string"
-                  },
-                  "title": "URLs Artifacts",
-                  "type": "array"
-                }
-              },
+              "properties": {},
               "title": "Variables",
               "type": "object"
             },
@@ -4497,7 +4804,7 @@
             "isDisabled": false,
             "parameters": {
               "input": {
-                "content": "### IDR Alert Input Summary\n\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[description]}}\n**Description:** {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[description]}}\n{{/if}}\n\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[investigationId]}}\n**Investigation ID:** {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[investigationId]}}\n{{/if}}\n\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[name]}}\n**Name:** {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[name]}}\n{{/if}}\n\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[link]}}\n**Link:** [{{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[link]}}]({{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[link]}})\n{{/if}}\n\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[timestamp]}}\n**Timestamp:** {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[timestamp]}}\n{{/if}}\n\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[type]}}\n**Type:** {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[type]}}\n{{/if}}\n\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[domains]}}\n**Alert Domains**\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[domains]}}\n+ {{this}}\n{{/each}}\n{{/if}}\n\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[ipAddresses]}}\n**Alert IP Addresses**\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[ipAddresses]}}\n{{#if ip}}\n* {{ip}} ({{type}})\n{{/if}}\n{{/each}}\n{{/if}}\n\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[urls]}}\n**Alert URLs**\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[urls]}}\n+ {{this}}\n{{/each}}\n{{/if}}\n\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[processes]}}\n**Alert Process Hashes**\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[processes]}}\n{{#if processId}}\n+ Alert Process: {{name}} ({{processId}})\n{{#if cmdLine}}\n  + Command Line: {{cmdLine}}\n{{/if}}\n{{#if assetId}}\n  + Asset ID: {{assetId}}\n{{/if}}\n{{#if hashes}}\n{{#each hashes}}\n  + {{hash}} ({{type}})\n{{/each}}\n{{/if}}\n{{/if}}\n{{/each}}\n{{/if}}"
+                "content": "### IDR Alert Input Summary\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[name]}}\n**Name:** {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[name]}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[description]}}\n**Description:** {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[description]}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[investigationId]}}\n**Investigation ID:** {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[investigationId]}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[type]}}\n**Type:** {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[type]}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[link]}}\n**Link:** [{{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[link]}}]({{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[link]}})\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[timestamp]}}\n**Timestamp:** {{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[timestamp]}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[domains]}}\n\n**Alert Domains**\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[domains]}}\n+ {{this}}\n{{/each}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[ipAddresses]}}\n\n**Alert IP Addresses**\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[ipAddresses]}}\n{{#if ip}}\n* {{ip}} ({{type}})\n{{/if}}\n{{/each}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[urls]}}\n\n**Alert URLs**\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[urls]}}\n+ {{this}}\n{{/each}}\n{{/if}}\n{{#if [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[processes]}}\n\n**Alert Process Hashes**\n{{#each [0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[processes]}}\n{{#if name}}\nAlert Process: {{name}}\n{{/if}}\n{{#if processId}}\n+ Alert Process ID: {{processId}}\n{{/if}}\n{{#if cmdLine}}\n  + Command Line: {{cmdLine}}\n{{/if}}\n{{#if assetId}}\n  + Asset ID: {{assetId}}\n{{/if}}\n{{#if hashes}}\n{{#each hashes}}\n  + {{hash}} ({{type}})\n\n{{/each}}\n{{/if}}\n{{/each}}\n{{/if}}\n"
               },
               "type": "markdown"
             },
@@ -4525,6 +4832,86 @@
             "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/artifact.svg",
             "connectionType": "NONE"
           },
+          "b67332f8-9657-4d09-9b54-6e52113b811c": {
+            "nodeId": "b67332f8-9657-4d09-9b54-6e52113b811c",
+            "name": "Send Recorded Future Hash Lookup to Slack",
+            "type": "action_chatops",
+            "continueOnFailure": false,
+            "isDisabled": false,
+            "parameters": {
+              "input": {
+                "attachments": [],
+                "message": "## Recorded Future Hash Lookup Results for {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[entity].[name]}}\n\n### Entity\n*ID*: {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[entity].[id]}}\n*Name*: {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[entity].[name]}}\n*Type*: {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[entity].[type]}}\n*Description*: {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[entity].[description]}}\n\n### Risk\n*Risk Summary*: {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[risk].[riskSummary]}}\n*Risk Score*: {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[risk].[score]}}\n*Risk Rules*: {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[risk].[rules]}}\n*Risk Criticality*: {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[risk].[criticality]}}\n*Criticality Label*: {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[risk].[criticalityLabel]}}\n*Evidence Details*:\n{{#each [9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[risk].[evidenceDetails]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n## Hash Algorithm \n{{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[hashAlgorithm]}}\n\n### Timestamps\n*First Seen*: {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[timestamps].[firstSeen]}}\n*Last Seen*: {{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[timestamps].[lastSeen]}}\n\n### Metrics\n{{#each [9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[metrics]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### IntelCard\n{{[9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[intelCard]}}\n\n### Sightings\n{{#each [9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[sightings]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Threat Lists\n{{#each [9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[threatLists]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Analyst Notes\n{{#each [9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[analystNotes]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Enterprise Lists\n{{#each [9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[enterpriseLists]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Related Entities\n{{#each [9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[relatedEntities]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n \n### Counts\n{{#each [9fdba8c8-1d71-4f8c-bea0-a07be406f8d9].[data].[counts]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}",
+                "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
+                "thread_ts": "{{[1ac6c7d1-a0c4-4954-9277-676d21257941].[timestamp]}}"
+              }
+            },
+            "defaultInputJSONSchema": {
+              "properties": {
+                "attachments": {
+                  "description": "JSON array of attachments - see Help for documentation",
+                  "items": {
+                    "type": "object"
+                  },
+                  "order": 4,
+                  "title": "Attachments",
+                  "type": "array"
+                },
+                "message": {
+                  "description": "Message to send",
+                  "order": 3,
+                  "title": "Message",
+                  "type": "string"
+                },
+                "recipient": {
+                  "description": "Channels begin with # (e.g. #channel) and usernames begin with @ (e.g. @username)",
+                  "order": 1,
+                  "title": "Enter #channel or @username",
+                  "type": "string"
+                },
+                "thread_ts": {
+                  "description": "Select timestamp output variable from parent message step",
+                  "order": 2,
+                  "title": "To post in a thread, select parent message timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "recipient"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "defaultOutputJSONSchema": {
+              "properties": {
+                "channel_id": {
+                  "description": "ChannelID of successful message",
+                  "order": 1,
+                  "title": "Channel ID",
+                  "type": "string"
+                },
+                "parent_message_timestamp": {
+                  "description": "The timestamp of the parent message or of the current message if there is no parent. Used to post messages to a thread.",
+                  "order": 3,
+                  "title": "Parent Message Timestamp",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "description": "Timestamp of successful message",
+                  "order": 2,
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "title": "Variables",
+              "type": "object"
+            },
+            "outputJSONSchema": null,
+            "defaultImageData": "",
+            "connectionType": "NONE",
+            "chatOpsAppName": "slack",
+            "chatOpsIdentifier": "post_message"
+          },
           "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c": {
             "nodeId": "c31913b4-d8f7-4ce6-9e10-fa5e26ec874c",
             "name": "Hashes Loop",
@@ -4532,29 +4919,7 @@
             "continueOnFailure": false,
             "isDisabled": false,
             "parameters": {
-              "customOutput": [
-                {
-                  "input": {
-                    "expression": {
-                      "left": {
-                        "name": "7972823b-1c61-43c4-bccf-58e15fad1b90.path",
-                        "type": "variable"
-                      },
-                      "op": "==",
-                      "right": {
-                        "type": "literal",
-                        "value": "Hash Was Found"
-                      },
-                      "type": "binary"
-                    },
-                    "expressionText": "{{[7972823b-1c61-43c4-bccf-58e15fad1b90].[path]}}==\"Hash Was Found\"",
-                    "value": "{{[adae9ae6-d997-421a-806a-b7908d74aeda].[content]}}",
-                    "valueType": "string"
-                  },
-                  "name": "Hash Artifacts",
-                  "outputType": "array"
-                }
-              ],
+              "customOutput": [],
               "innerEdgeId": "fe9ef89a-04d9-44d4-8d14-d6f8f3ac0721",
               "nextEdgeId": "70e34d26-35d2-4f8d-884c-3bb30e5b7a15",
               "repeatVariable": "{{[eb83e890-c81a-409e-83d0-64b310c68b3f].[$item].[hashes]}}"
@@ -4562,16 +4927,7 @@
             "defaultInputJSONSchema": null,
             "defaultOutputJSONSchema": null,
             "outputJSONSchema": {
-              "properties": {
-                "Hash Artifacts": {
-                  "description": "Custom output: \"Hash Artifacts\"",
-                  "items": {
-                    "type": "string"
-                  },
-                  "title": "Hash Artifacts",
-                  "type": "array"
-                }
-              },
+              "properties": {},
               "title": "Variables",
               "type": "object"
             },
@@ -4614,6 +4970,166 @@
             "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/artifact.svg",
             "connectionType": "NONE"
           },
+          "e232a712-58ba-4d98-9d31-46913a254443": {
+            "nodeId": "e232a712-58ba-4d98-9d31-46913a254443",
+            "name": "Send Recorded Future URL Lookup Output to Slack",
+            "type": "action_chatops",
+            "continueOnFailure": false,
+            "isDisabled": false,
+            "parameters": {
+              "input": {
+                "attachments": [],
+                "message": "## Recorded Future URL Lookup Results for {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[entity].[name]}}\n\n### Entity\n*ID*: {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[entity].[id]}}\n*Name*: {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[entity].[name]}}\n*Type*: {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[entity].[type]}}\n*Description*: {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[entity].[description]}}\n\n### Risk\n*Risk Summary*: {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[risk].[riskSummary]}}\n*Risk Score*: {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[risk].[score]}}\n*Risk Rules*: {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[risk].[rules]}}\n*Risk Criticality*: {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[risk].[criticality]}}\n*Criticality Label*: {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[risk].[criticalityLabel]}}\n*Evidence Details*:\n{{#each [8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[risk].[evidenceDetails]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Timestamps\n*First Seen*: {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[timestamps].[firstSeen]}}\n*Last Seen*: {{[8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[timestamps].[lastSeen]}}\n\n### Metrics\n{{#each [8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[metrics]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Sightings\n{{#each [8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[sightings]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Analyst Notes\n{{#each [8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[analystNotes]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Enterprise Lists\n{{#each [8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[enterpriseLists]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Related Entities\n{{#each [8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[relatedEntities]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Counts\n{{#each [8e21b464-8fc3-4b2c-ae82-c3408e2be2f5].[data].[counts]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}",
+                "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
+                "thread_ts": "{{[1ac6c7d1-a0c4-4954-9277-676d21257941].[timestamp]}}"
+              }
+            },
+            "defaultInputJSONSchema": {
+              "properties": {
+                "attachments": {
+                  "description": "JSON array of attachments - see Help for documentation",
+                  "items": {
+                    "type": "object"
+                  },
+                  "order": 4,
+                  "title": "Attachments",
+                  "type": "array"
+                },
+                "message": {
+                  "description": "Message to send",
+                  "order": 3,
+                  "title": "Message",
+                  "type": "string"
+                },
+                "recipient": {
+                  "description": "Channels begin with # (e.g. #channel) and usernames begin with @ (e.g. @username)",
+                  "order": 1,
+                  "title": "Enter #channel or @username",
+                  "type": "string"
+                },
+                "thread_ts": {
+                  "description": "Select timestamp output variable from parent message step",
+                  "order": 2,
+                  "title": "To post in a thread, select parent message timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "recipient"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "defaultOutputJSONSchema": {
+              "properties": {
+                "channel_id": {
+                  "description": "ChannelID of successful message",
+                  "order": 1,
+                  "title": "Channel ID",
+                  "type": "string"
+                },
+                "parent_message_timestamp": {
+                  "description": "The timestamp of the parent message or of the current message if there is no parent. Used to post messages to a thread.",
+                  "order": 3,
+                  "title": "Parent Message Timestamp",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "description": "Timestamp of successful message",
+                  "order": 2,
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "title": "Variables",
+              "type": "object"
+            },
+            "outputJSONSchema": null,
+            "defaultImageData": "",
+            "connectionType": "NONE",
+            "chatOpsAppName": "slack",
+            "chatOpsIdentifier": "post_message"
+          },
+          "e7ffdf6d-e8ef-48d3-b35a-d9a1352459cc": {
+            "nodeId": "e7ffdf6d-e8ef-48d3-b35a-d9a1352459cc",
+            "name": "Send Recorded Future Domain Lookup Output to Slack",
+            "type": "action_chatops",
+            "continueOnFailure": false,
+            "isDisabled": false,
+            "parameters": {
+              "input": {
+                "attachments": [],
+                "message": "## Recorded Future Domain Lookup Results for {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[entity].[name]}}\n### Entity\n*ID*: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[entity].[id]}}\n*Name*: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[entity].[name]}}\n*Type*: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[entity].[type]}}\n*Description*: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[entity].[description]}}\n\n### Risk\n*Risk Summary*: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[riskSummary]}}\n*Risk Score*: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[score]}}\n*Risk Rules*: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[rules]}}\n*Risk Criticality*: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[criticality]}}\n*Criticality Label*: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[criticalityLabel]}}\n*Evidence Details*:\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[risk].[evidenceDetails]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Timestamps\n*First Seen*: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[timestamps].[firstSeen]}}\n*Last Seen*: {{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[timestamps].[lastSeen]}}\n\n### Metrics\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[metrics]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### IntelCard\n{{[8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[intelCard]}}\n\n### Sightings\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[sightings]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Threat Lists\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[threatLists]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Analyst Notes\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[analystNotes]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Enterprise Lists\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[enterpriseLists]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Related Entities\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[relatedEntities]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}\n\n### Counts\n{{#each [8ab32c04-1159-4095-8649-3b92a00fa0de].[data].[counts]}}\n\n{{#each .}}\n *{{@key}}*: {{.}}\n{{/each}}\n\n{{/each}}",
+                "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
+                "thread_ts": "{{[1ac6c7d1-a0c4-4954-9277-676d21257941].[timestamp]}}"
+              }
+            },
+            "defaultInputJSONSchema": {
+              "properties": {
+                "attachments": {
+                  "description": "JSON array of attachments - see Help for documentation",
+                  "items": {
+                    "type": "object"
+                  },
+                  "order": 4,
+                  "title": "Attachments",
+                  "type": "array"
+                },
+                "message": {
+                  "description": "Message to send",
+                  "order": 3,
+                  "title": "Message",
+                  "type": "string"
+                },
+                "recipient": {
+                  "description": "Channels begin with # (e.g. #channel) and usernames begin with @ (e.g. @username)",
+                  "order": 1,
+                  "title": "Enter #channel or @username",
+                  "type": "string"
+                },
+                "thread_ts": {
+                  "description": "Select timestamp output variable from parent message step",
+                  "order": 2,
+                  "title": "To post in a thread, select parent message timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "recipient"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "defaultOutputJSONSchema": {
+              "properties": {
+                "channel_id": {
+                  "description": "ChannelID of successful message",
+                  "order": 1,
+                  "title": "Channel ID",
+                  "type": "string"
+                },
+                "parent_message_timestamp": {
+                  "description": "The timestamp of the parent message or of the current message if there is no parent. Used to post messages to a thread.",
+                  "order": 3,
+                  "title": "Parent Message Timestamp",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "description": "Timestamp of successful message",
+                  "order": 2,
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "title": "Variables",
+              "type": "object"
+            },
+            "outputJSONSchema": null,
+            "defaultImageData": "",
+            "connectionType": "NONE",
+            "chatOpsAppName": "slack",
+            "chatOpsIdentifier": "post_message"
+          },
           "eb83e890-c81a-409e-83d0-64b310c68b3f": {
             "nodeId": "eb83e890-c81a-409e-83d0-64b310c68b3f",
             "name": "Processes Loop",
@@ -4621,17 +5137,7 @@
             "continueOnFailure": false,
             "isDisabled": false,
             "parameters": {
-              "customOutput": [
-                {
-                  "input": {
-                    "expression": null,
-                    "value": "{{[c31913b4-d8f7-4ce6-9e10-fa5e26ec874c].[Hash Artifacts]}}",
-                    "valueType": "array"
-                  },
-                  "name": "Hash Artifacts",
-                  "outputType": "array"
-                }
-              ],
+              "customOutput": [],
               "innerEdgeId": "e9266e16-db34-4be1-b64a-19d8e85a3e66",
               "nextEdgeId": "5ea391ab-a71d-4cd1-b7e8-80a730083698",
               "repeatVariable": "{{[0c82a5a8-f3e8-4967-aa5e-d62e815c9893].[contents].[processes]}}"
@@ -4639,124 +5145,172 @@
             "defaultInputJSONSchema": null,
             "defaultOutputJSONSchema": null,
             "outputJSONSchema": {
-              "properties": {
-                "Hash Artifacts": {
-                  "description": "Custom output: \"Hash Artifacts\"",
-                  "items": {
-                    "type": "array"
-                  },
-                  "title": "Hash Artifacts",
-                  "type": "array"
-                }
-              },
+              "properties": {},
               "title": "Variables",
               "type": "object"
             },
             "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/loop.svg",
             "connectionType": "NONE"
           },
-          "f2fc6319-62a1-472b-96a9-d6607a7901c4": {
-            "nodeId": "f2fc6319-62a1-472b-96a9-d6607a7901c4",
-            "name": "Any Reports to Send?",
-            "type": "filter",
+          "f13a1eb0-d9c3-465e-bfe5-f7240d4462a3": {
+            "nodeId": "f13a1eb0-d9c3-465e-bfe5-f7240d4462a3",
+            "name": "Send Hash Was Not Found to Slack",
+            "type": "action_chatops",
             "continueOnFailure": false,
             "isDisabled": false,
             "parameters": {
-              "stepControlParam": {
-                "edgeId": "3abdfd57-968e-40b1-9d3d-2c774c8eb4a3",
-                "expression": {
-                  "left": {
-                    "left": {
-                      "args": [
-                        {
-                          "name": "a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4.URLs Artifacts",
-                          "type": "variable"
-                        }
-                      ],
-                      "name": "length",
-                      "type": "function"
-                    },
-                    "op": ">",
-                    "right": {
-                      "type": "literal",
-                      "value": 0
-                    },
-                    "type": "binary"
-                  },
-                  "op": "OR",
-                  "right": {
-                    "left": {
-                      "left": {
-                        "args": [
-                          {
-                            "name": "a2c738a8-1fbd-4023-98e7-82338c77f68b.Domain Artifacts",
-                            "type": "variable"
-                          }
-                        ],
-                        "name": "length",
-                        "type": "function"
-                      },
-                      "op": ">",
-                      "right": {
-                        "type": "literal",
-                        "value": 0
-                      },
-                      "type": "binary"
-                    },
-                    "op": "OR",
-                    "right": {
-                      "left": {
-                        "left": {
-                          "args": [
-                            {
-                              "name": "eb83e890-c81a-409e-83d0-64b310c68b3f.Hash Artifacts",
-                              "type": "variable"
-                            }
-                          ],
-                          "name": "length",
-                          "type": "function"
-                        },
-                        "op": ">",
-                        "right": {
-                          "type": "literal",
-                          "value": 0
-                        },
-                        "type": "binary"
-                      },
-                      "op": "OR",
-                      "right": {
-                        "left": {
-                          "args": [
-                            {
-                              "name": "311bf7e1-96df-4633-a16e-cd2f79e1afff.IP Address Artifacts",
-                              "type": "variable"
-                            }
-                          ],
-                          "name": "length",
-                          "type": "function"
-                        },
-                        "op": ">",
-                        "right": {
-                          "type": "literal",
-                          "value": 0
-                        },
-                        "type": "binary"
-                      },
-                      "type": "binary"
-                    },
-                    "type": "binary"
-                  },
-                  "type": "binary"
-                },
-                "expressionText": "length({{[a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4].[URLs Artifacts]}})>0 OR length({{[a2c738a8-1fbd-4023-98e7-82338c77f68b].[Domain Artifacts]}})>0 OR length({{[eb83e890-c81a-409e-83d0-64b310c68b3f].[Hash Artifacts]}})>0 OR length({{[311bf7e1-96df-4633-a16e-cd2f79e1afff].[IP Address Artifacts]}})>0"
-              },
-              "stopOnMatch": false
+              "input": {
+                "attachments": [],
+                "message": "*## Hash was not found in Recorded Future*\n\n{{[c31913b4-d8f7-4ce6-9e10-fa5e26ec874c].[$item]}}",
+                "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
+                "thread_ts": "{{[1ac6c7d1-a0c4-4954-9277-676d21257941].[timestamp]}}"
+              }
             },
-            "defaultInputJSONSchema": null,
-            "defaultOutputJSONSchema": null,
+            "defaultInputJSONSchema": {
+              "properties": {
+                "attachments": {
+                  "description": "JSON array of attachments - see Help for documentation",
+                  "items": {
+                    "type": "object"
+                  },
+                  "order": 4,
+                  "title": "Attachments",
+                  "type": "array"
+                },
+                "message": {
+                  "description": "Message to send",
+                  "order": 3,
+                  "title": "Message",
+                  "type": "string"
+                },
+                "recipient": {
+                  "description": "Channels begin with # (e.g. #channel) and usernames begin with @ (e.g. @username)",
+                  "order": 1,
+                  "title": "Enter #channel or @username",
+                  "type": "string"
+                },
+                "thread_ts": {
+                  "description": "Select timestamp output variable from parent message step",
+                  "order": 2,
+                  "title": "To post in a thread, select parent message timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "recipient"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "defaultOutputJSONSchema": {
+              "properties": {
+                "channel_id": {
+                  "description": "ChannelID of successful message",
+                  "order": 1,
+                  "title": "Channel ID",
+                  "type": "string"
+                },
+                "parent_message_timestamp": {
+                  "description": "The timestamp of the parent message or of the current message if there is no parent. Used to post messages to a thread.",
+                  "order": 3,
+                  "title": "Parent Message Timestamp",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "description": "Timestamp of successful message",
+                  "order": 2,
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "title": "Variables",
+              "type": "object"
+            },
             "outputJSONSchema": null,
-            "defaultImageData": "https://us.cdn-assets.connect.insight.rapid7.com/step-type-icons/filter.svg",
-            "connectionType": "NONE"
+            "defaultImageData": "",
+            "connectionType": "NONE",
+            "chatOpsAppName": "slack",
+            "chatOpsIdentifier": "post_message"
+          },
+          "f2221486-1ffc-42ce-923c-0a4fab6e667a": {
+            "nodeId": "f2221486-1ffc-42ce-923c-0a4fab6e667a",
+            "name": "Send Recorded Future URL Not Found to Slack",
+            "type": "action_chatops",
+            "continueOnFailure": false,
+            "isDisabled": false,
+            "parameters": {
+              "input": {
+                "attachments": [],
+                "message": "*## URL was not found in Recorded Future*\n\n{{[a789cdb6-fe15-4bf9-9d0d-18308b1ec5e4].[$item]}}",
+                "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
+                "thread_ts": "{{[1ac6c7d1-a0c4-4954-9277-676d21257941].[timestamp]}}"
+              }
+            },
+            "defaultInputJSONSchema": {
+              "properties": {
+                "attachments": {
+                  "description": "JSON array of attachments - see Help for documentation",
+                  "items": {
+                    "type": "object"
+                  },
+                  "order": 4,
+                  "title": "Attachments",
+                  "type": "array"
+                },
+                "message": {
+                  "description": "Message to send",
+                  "order": 3,
+                  "title": "Message",
+                  "type": "string"
+                },
+                "recipient": {
+                  "description": "Channels begin with # (e.g. #channel) and usernames begin with @ (e.g. @username)",
+                  "order": 1,
+                  "title": "Enter #channel or @username",
+                  "type": "string"
+                },
+                "thread_ts": {
+                  "description": "Select timestamp output variable from parent message step",
+                  "order": 2,
+                  "title": "To post in a thread, select parent message timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "recipient"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "defaultOutputJSONSchema": {
+              "properties": {
+                "channel_id": {
+                  "description": "ChannelID of successful message",
+                  "order": 1,
+                  "title": "Channel ID",
+                  "type": "string"
+                },
+                "parent_message_timestamp": {
+                  "description": "The timestamp of the parent message or of the current message if there is no parent. Used to post messages to a thread.",
+                  "order": 3,
+                  "title": "Parent Message Timestamp",
+                  "type": "string"
+                },
+                "timestamp": {
+                  "description": "Timestamp of successful message",
+                  "order": 2,
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "title": "Variables",
+              "type": "object"
+            },
+            "outputJSONSchema": null,
+            "defaultImageData": "",
+            "connectionType": "NONE",
+            "chatOpsAppName": "slack",
+            "chatOpsIdentifier": "post_message"
           },
           "ff66f5bf-907d-4a17-acdf-3a152ff0cc97": {
             "nodeId": "ff66f5bf-907d-4a17-acdf-3a152ff0cc97",
@@ -4790,7 +5344,7 @@
           }
         },
         "tags": [],
-        "humanCostSeconds": 0,
+        "humanCostSeconds": 12300,
         "humanCostDisplayUnit": "minutes",
         "parameters": {
           "definitionSchema": {
@@ -4799,7 +5353,7 @@
             "properties": {
               "Slack Channel or Person Identifier": {
                 "type": "string",
-                "description": "Slack channel or person identifier to send virus total report.\n\nE.g:\n@jdoe- to send a message to person named jdoe,\n#integration - to send a message to channel named integration"
+                "description": "Slack channel or person identifier to send RecordedFuture report.\n\nE.g:\n@jdoe- to send a message to person named jdoe,\n#integration - to send a message to channel named integration"
               }
             },
             "definitions": {}
@@ -4810,7 +5364,7 @@
     ],
     "triggers": [
       {
-        "id": "257cc468-ca32-4f49-a2bd-8b84f5167a6b",
+        "id": "ef1779db-587f-4eec-854e-2b5d0c3c3005",
         "name": "IDR Alert",
         "description": "",
         "input": null,

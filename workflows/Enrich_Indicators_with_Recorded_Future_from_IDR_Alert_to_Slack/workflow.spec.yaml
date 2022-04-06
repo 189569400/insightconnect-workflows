@@ -41,6 +41,8 @@ resources:
     title: Recorded Future IP Lookup Output
   - name: Recorded_Future_Hash_Lookup_Output.png
     title: Recorded Future Hash Lookup Output
+  - name: Slack_IDR_Alert_Input_Summary.png
+    title: Slack IDR Alert Input Summary
   - name: Slack_URL_Lookup.png
     title: Slack URL Lookup Output
   - name: Slack_Domain_Lookup.png
