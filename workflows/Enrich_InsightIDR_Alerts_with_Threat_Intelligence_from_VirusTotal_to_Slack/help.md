@@ -13,6 +13,7 @@ To use this workflow, import and activate it in InsightConnect. Then, open an In
 * InsightIDR License
 * InsightConnect License
 * VirusTotal API Key
+* [Slack](https://docs.rapid7.com/insightconnect/configure-slack-for-chatops)
 
 # Documentation
 
@@ -28,7 +29,16 @@ Once you have activated an Orchestrator, you'll need an API key from VirusTotal.
 2. Log in and click on your user profile in the top right, then click on `API key`
 3. Copy your API key
 
-Now, simply import the workflow, import the VirusTotal plugin, create a connection using your VirusTotal API Key, and activate the workflow in InsightConnect! No additional setup is required for this workflow.
+Now, import the workflow, import the VirusTotal plugin, create a connection using your VirusTotal API Key, and activate the workflow in InsightConnect!
+
+Furthermore to use this workflow and send Slack messages you need to install and configure the [InsightConnect Slack App](https://docs.rapid7.com/insightconnect/configure-slack-for-chatops/).
+
+As workflow is using InsightConnect's Parameters feature which allows to enter a variable once and use it multiple times throughout the workflow, you need to configure one of them in `Parameters` section on the main page of imported workflow:
+
+* Slack Channel or Person Identifier: 
+Slack channel or person identifier to send Virus Total report. E.g:
+@jdoe - to send a message to person named jdoe
+#integration - to send a message to channel named integration
 
 ### Usage
 
@@ -37,7 +47,7 @@ To run the workflow, follow the below steps:
 1. Open an Investigation in InsightIDR that includes an external IP address, URL, domain, or process hash
 2. Click the `Take Action` button in the Investigation to open the response panel
 3. Select `Custom InsightConnect Workflows` from the `Action Category` list
-4. Select the `Enrich InsightIDR Alerts with Threat Intelligence from VirusTotal` workflow (Note: If you changed the name of the workflow during the import process, then you will see a different workflow name!)
+4. Select the `Enrich InsightIDR Alerts with Threat Intelligence from VirusTotal to Slack` workflow (Note: If you changed the name of the workflow during the import process, then you will see a different workflow name!)
 5. Select the indicator(s) of compromise to enrich
 6. Click `Take Action`!
 
@@ -52,7 +62,6 @@ Plugins utilized by workflow:
 |VirusTotal|8.0.1|4|
 |HashIt|2.0.4|1|
 |Math|1.2.1|3|
-|Python 3 Script|2.0.4|1|
 
 ## Troubleshooting
 
@@ -66,3 +75,4 @@ _There is no troubleshooting information at this time_
 
 ## References
 * [VirusTotal](https://virustotal.com)
+* [Slack](https://slack.com)
