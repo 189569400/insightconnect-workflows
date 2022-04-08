@@ -1,8 +1,8 @@
 {
   "kom": {
-    "komandVersion": "1.98.1-0-ga690f",
+    "komandVersion": "1.101.0-0-g85eb0",
     "komFileVersion": "2.0.0",
-    "exportedAt": "2022-03-14T11:45:24.553772903Z",
+    "exportedAt": "2022-04-08T11:46:26.544053307Z",
     "workflowVersions": [
       {
         "name": "Enrich InsightIDR Alerts with Threat Intelligence from VirusTotal",
@@ -1818,7 +1818,7 @@
             "type": "trigger",
             "continueOnFailure": false,
             "isDisabled": false,
-            "triggerId": "4ec13f5f-199b-4f33-b146-50c128a72cc9",
+            "triggerId": "8a38ec88-0620-4435-87d1-b7e38f08140f",
             "defaultInputJSONSchema": {
               "definitions": {
                 "actor": {
@@ -3960,7 +3960,7 @@
             "isDisabled": false,
             "parameters": {
               "input": {
-                "content": "## IP Addresses Report\n\n*Report for {{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}}*\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n* Hosting country: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n* Network: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n* ASN: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n* Reputation: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n{{/if}}\n* Number of engines that detected malicious URLs associated with this IP: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[last_analysis_stats].[malicious]}}\n* Total number of engines in `detected_URLs` dataset: {{[fbeff396-2b7c-4e40-ac13-7d298e088eeb].[result]}}\n\n* Complete VirusTotal Report: [https://www.virustotal.com/gui/ip-address/{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}}](https://www.virustotal.com/gui/ip-address/{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}})\n\n## Up Next\n1. Browse the **[Extension Library](https://extensions.rapid7.com/?sort=alphabetical&types=workflow&view=grid)** and the **[Discover tab](#/home?Discover=1)** to find, import, and use more automation use cases!\n2. Browse our **[Help Documentation](https://insightconnect.help.rapid7.com/docs)** and **[Discuss Forum](https://discuss.rapid7.com/c/insightconnect)** to learn more about building your own custom workflows\n3. Check out our **[InsightConnect Certified Specialist course](https://www.rapid7.com/services/training-certification/training/insightconnect-certified-specialist/)** to learn about more advanced workflow building concepts!"
+                "content": "## IP Addresses Report\n\n*Report for {{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}}*\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n* Hosting country: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n* Network: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n* ASN: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n* Reputation: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n{{/if}}\n* Number of engines that detected malicious URLs associated with this IP: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[last_analysis_stats].[malicious]}}\n* Total number of engines in `detected_URLs` dataset: {{[fbeff396-2b7c-4e40-ac13-7d298e088eeb].[result]}}\n\n* Complete VirusTotal Report: [https://www.virustotal.com/gui/ip-address/{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item].[ip]}}](https://www.virustotal.com/gui/ip-address/{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item].[ip]}})\n\n## Up Next\n1. Browse the **[Extension Library](https://extensions.rapid7.com/?sort=alphabetical&types=workflow&view=grid)** and the **[Discover tab](#/home?Discover=1)** to find, import, and use more automation use cases!\n2. Browse our **[Help Documentation](https://insightconnect.help.rapid7.com/docs)** and **[Discuss Forum](https://discuss.rapid7.com/c/insightconnect)** to learn more about building your own custom workflows\n3. Check out our **[InsightConnect Certified Specialist course](https://www.rapid7.com/services/training-certification/training/insightconnect-certified-specialist/)** to learn about more advanced workflow building concepts!"
               },
               "type": "markdown"
             },
@@ -4041,7 +4041,7 @@
     ],
     "triggers": [
       {
-        "id": "4ec13f5f-199b-4f33-b146-50c128a72cc9",
+        "id": "8a38ec88-0620-4435-87d1-b7e38f08140f",
         "name": "IDR Alert",
         "description": "",
         "input": null,
