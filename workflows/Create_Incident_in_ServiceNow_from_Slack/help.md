@@ -50,9 +50,8 @@ Plugins utilized by workflow:
 
 |Plugin|Version|Count|
 |----|----|--------|
-|Python 3 Script|2.0.1|1|
-|ServiceNow|4.0.0|1|
-
+|Python 3 Script|2.0.4|1|
+|ServiceNow|6.0.0|1|
 
 ## Troubleshooting
 
@@ -60,6 +59,7 @@ _There is no troubleshooting information at this time_
 
 # Version History
 
+* 1.1.0 - Update ServiceNow and Python 3 Script plugins to the latest versions
 * 1.0.0 - Initial workflow
 
 # Links

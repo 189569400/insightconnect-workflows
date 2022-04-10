@@ -3,13 +3,13 @@ products: ["insightconnect"]
 name: Create_Incident_in_ServiceNow_from_Slack
 title: "Create Incident in ServiceNow from Slack"
 description: "Automatically create an incident in ServiceNow directly from Slack."
-version: 1.0.0
+version: 1.1.0
 vendor: rapid7
 support: rapid7
 status: []
 hub_tags:
   use_cases: [ticketing, vulnerability_management]
-  keywords: []
+  keywords: [itsm, parameters]
   features: []
   vendors: [slack, servicenow]
   products: [slack, servicenow]
