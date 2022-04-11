@@ -5,6 +5,7 @@ This workflow enriches an IDR alert by performing a lookup on all domains, hashe
 # Key Features
 
 * Perform a domain, hash, URL and IP lookup automatically from any IDR alert
+* Send the report to the Microsoft Teams channel
 
 # Requirements
 

@@ -9,7 +9,7 @@ support: rapid7
 status: []
 hub_tags:
   use_cases: [threat_intel]
-  keywords: [enrichment, recorded_future, domains, hash, url, ip_address, chat, parameters]
+  keywords: [enrichment, recorded_future, domains, hash, url, ip_address, chat, parameters, microsoft_teams]
   features: []
   vendors: [rapid7, recorded_future, microsoft]
   products: [insightidr, recorded_future, microsoft_teams]
