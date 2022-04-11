@@ -9,7 +9,7 @@ support: rapid7
 status: []
 hub_tags:
   use_cases: [threat_intel]
-  keywords: [enrichment, domains, parameters]
+  keywords: [enrichment, domains, parameters, recorded_future]
   features: []
   vendors: [rapid7, recorded_future]
   products: [insightidr, recorded_future]
