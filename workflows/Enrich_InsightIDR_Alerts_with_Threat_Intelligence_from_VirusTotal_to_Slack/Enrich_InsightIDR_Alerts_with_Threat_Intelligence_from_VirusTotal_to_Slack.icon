@@ -1,8 +1,8 @@
 {
   "kom": {
-    "komandVersion": "1.100.0-0-gcd062",
+    "komandVersion": "1.101.0-0-g85eb0",
     "komFileVersion": "2.0.0",
-    "exportedAt": "2022-04-06T13:26:40.477524295Z",
+    "exportedAt": "2022-04-13T09:23:22.426326083Z",
     "workflowVersions": [
       {
         "name": "Enrich InsightIDR Alerts with Threat Intelligence from VirusTotal to Slack",
@@ -177,7 +177,7 @@
               "description": "",
               "parentNodeId": "012f25e4-d69c-47ed-9041-3f00f9008177",
               "fromNodeId": "89ea5fec-f195-4886-8a09-467efdd68aea",
-              "toNodeId": "0cd18853-cc3d-46a5-80cf-fd5d4ba85f02"
+              "toNodeId": "69806ab1-21c7-4935-97ad-ff7a03cf0a2b"
             },
             "73a68b56-9249-419a-95bd-83ababe2ba54": {
               "id": "73a68b56-9249-419a-95bd-83ababe2ba54",
@@ -210,6 +210,14 @@
               "parentNodeId": "08e64698-3fcd-4b6e-a244-d8fd180e1a04",
               "fromNodeId": "0482c427-acb5-4f40-82e5-3823679b82f5",
               "toNodeId": "c36c5f13-25cb-439a-80b5-d9ca6e6036e7"
+            },
+            "7b864801-5da5-41ae-92d7-30b75bae0b9f": {
+              "id": "7b864801-5da5-41ae-92d7-30b75bae0b9f",
+              "name": "",
+              "description": "",
+              "parentNodeId": "012f25e4-d69c-47ed-9041-3f00f9008177",
+              "fromNodeId": "69806ab1-21c7-4935-97ad-ff7a03cf0a2b",
+              "toNodeId": "0cd18853-cc3d-46a5-80cf-fd5d4ba85f02"
             },
             "7bee2b08-c945-408b-91cd-611d1db2cb16": {
               "id": "7bee2b08-c945-408b-91cd-611d1db2cb16",
@@ -481,6 +489,10 @@
               "id": "502fbc5a-56df-430a-b716-87c962aac651",
               "parentNodeId": "08e64698-3fcd-4b6e-a244-d8fd180e1a04"
             },
+            "69806ab1-21c7-4935-97ad-ff7a03cf0a2b": {
+              "id": "69806ab1-21c7-4935-97ad-ff7a03cf0a2b",
+              "parentNodeId": "012f25e4-d69c-47ed-9041-3f00f9008177"
+            },
             "71e2da52-8f0c-4366-8ed4-6f13a23bb533": {
               "id": "71e2da52-8f0c-4366-8ed4-6f13a23bb533",
               "parentNodeId": "df6d7d6e-ac6f-4941-b7db-9cbdaba3125c"
@@ -608,10 +620,15 @@
               "defaultEdgeId": "b254cb59-b2c8-4275-bc57-5988cc52b55e",
               "stepControlParams": [
                 {
+                  "edgeId": "b254cb59-b2c8-4275-bc57-5988cc52b55e",
+                  "expression": {},
+                  "expressionText": ""
+                },
+                {
                   "edgeId": "e3e3bdfc-cc4f-4cf6-9c6b-dc03e816a5c0",
                   "expression": {
                     "left": {
-                      "name": "c82f587a-72fa-4f5a-81a2-edd15173ca7b.$success",
+                      "name": "c82f587a-72fa-4f5a-81a2-edd15173ca7b.found",
                       "type": "variable"
                     },
                     "op": "=",
@@ -621,12 +638,7 @@
                     },
                     "type": "binary"
                   },
-                  "expressionText": "{{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[$success]}}=true"
-                },
-                {
-                  "edgeId": "b254cb59-b2c8-4275-bc57-5988cc52b55e",
-                  "expression": {},
-                  "expressionText": ""
+                  "expressionText": "{{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[found]}}=true"
                 }
               ]
             },
@@ -644,7 +656,7 @@
             "isDisabled": false,
             "parameters": {
               "input": {
-                "content": "## Hashes Report\n\n*Hash report for {{[08e64698-3fcd-4b6e-a244-d8fd180e1a04].[$item].[hash]}}*\n* Scan Date (timestamp): {{[502fbc5a-56df-430a-b716-87c962aac651].[report].[last_analysis_date]}}\n* Malicious: {{[502fbc5a-56df-430a-b716-87c962aac651].[report].[malicious]}}\n* Number of malicious reports: {{[502fbc5a-56df-430a-b716-87c962aac651].[report].[last_analysis_stats].[malicious]}}\n* Total reports: {{[20282e3f-62fd-4a22-aa06-335c7f881b20].[result]}}\n* Complete VirusTotal Report: [https://www.virustotal.com/gui/file/{{[502fbc5a-56df-430a-b716-87c962aac651].[report].[sha256]}}/detection](https://www.virustotal.com/gui/file/{{[502fbc5a-56df-430a-b716-87c962aac651].[report].[sha256]}}/detection)\n\n## Up Next\n1. Browse the **[Extension Library](https://extensions.rapid7.com/?sort=alphabetical&types=workflow&view=grid)** and the **[Discover tab](#/home?Discover=1)** to find, import, and use more automation use cases!\n2. Browse our **[Help Documentation](https://insightconnect.help.rapid7.com/docs)** and **[Discuss Forum](https://discuss.rapid7.com/c/insightconnect)** to learn more about building your own custom workflows\n3. Check out our **[InsightConnect Certified Specialist course](https://www.rapid7.com/services/training-certification/training/insightconnect-certified-specialist/)** to learn about more advanced workflow building concepts!"
+                "content": "## Hashes Report\n\n**Hash report for {{[08e64698-3fcd-4b6e-a244-d8fd180e1a04].[$item].[hash]}}**\n* Scan Date (timestamp): {{[502fbc5a-56df-430a-b716-87c962aac651].[report].[last_analysis_date]}}\n* Found Malicious by `{{[502fbc5a-56df-430a-b716-87c962aac651].[report].[last_analysis_stats].[malicious]}}` scans out of `{{[20282e3f-62fd-4a22-aa06-335c7f881b20].[result]}}` total\n* Complete VirusTotal Report: [https://www.virustotal.com/gui/file/{{[502fbc5a-56df-430a-b716-87c962aac651].[report].[sha256]}}/detection](https://www.virustotal.com/gui/file/{{[502fbc5a-56df-430a-b716-87c962aac651].[report].[sha256]}}/detection)\n"
               },
               "type": "markdown"
             },
@@ -684,7 +696,7 @@
             "isDisabled": false,
             "parameters": {
               "input": {
-                "content": "## Domain Report\n\n*Report for {{[012f25e4-d69c-47ed-9041-3f00f9008177].[$item]}}*\n* Last analysis results:\n    Harmless: {{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[harmless]}}\n    Malicious: {{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[malicious]}}\n    Suspicious: {{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[suspicious]}}\n* Categories: {{#each [c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[categories]}}\n    * {{this}}\n{{/each}}\n* WHOIS Information:\n{{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[whois]}}\n* Full VirusTotal Report: [https://www.virustotal.com/gui/domain/{{[012f25e4-d69c-47ed-9041-3f00f9008177].[$item]}}/detection](https://www.virustotal.com/gui/domain/{{[012f25e4-d69c-47ed-9041-3f00f9008177].[$item]}}/detection)\n\n## Up Next\n1. Browse the **[Extension Library](https://extensions.rapid7.com/?sort=alphabetical&types=workflow&view=grid)** and the **[Discover tab](#/home?Discover=1)** to find, import, and use more automation use cases!\n2. Browse our **[Help Documentation](https://insightconnect.help.rapid7.com/docs)** and **[Discuss Forum](https://discuss.rapid7.com/c/insightconnect)** to learn more about building your own custom workflows\n3. Check out our **[InsightConnect Certified Specialist course](https://www.rapid7.com/services/training-certification/training/insightconnect-certified-specialist/)** to learn about more advanced workflow building concepts!"
+                "content": "## Domain Report\n\n*Report for {{[012f25e4-d69c-47ed-9041-3f00f9008177].[$item]}}*\n\n* Scan Date (timestamp): {{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_date]}}\n* Found Malicious by `{{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[malicious]}}` scans out of `{{[69806ab1-21c7-4935-97ad-ff7a03cf0a2b].[result]}}` total\n* Categories: {{#each [c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[categories]}}\n    * {{this}}\n{{/each}}\n* WHOIS Information:\n{{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[whois]}}\n* Full VirusTotal Report: [https://www.virustotal.com/gui/domain/{{[012f25e4-d69c-47ed-9041-3f00f9008177].[$item]}}/detection](https://www.virustotal.com/gui/domain/{{[012f25e4-d69c-47ed-9041-3f00f9008177].[$item]}}/detection)"
               },
               "type": "markdown"
             },
@@ -1103,17 +1115,25 @@
               "defaultEdgeId": "0532b323-d6b5-42ff-9308-c13e8ed752dd",
               "stepControlParams": [
                 {
-                  "edgeId": "f789eb26-a3cb-43ff-8a8d-4cf2e5760c0f",
-                  "expression": {
-                    "name": "502fbc5a-56df-430a-b716-87c962aac651.$success",
-                    "type": "variable"
-                  },
-                  "expressionText": "{{[502fbc5a-56df-430a-b716-87c962aac651].[$success]}}"
-                },
-                {
                   "edgeId": "0532b323-d6b5-42ff-9308-c13e8ed752dd",
                   "expression": {},
                   "expressionText": ""
+                },
+                {
+                  "edgeId": "f789eb26-a3cb-43ff-8a8d-4cf2e5760c0f",
+                  "expression": {
+                    "left": {
+                      "name": "502fbc5a-56df-430a-b716-87c962aac651.found",
+                      "type": "variable"
+                    },
+                    "op": "=",
+                    "right": {
+                      "type": "literal",
+                      "value": true
+                    },
+                    "type": "binary"
+                  },
+                  "expressionText": "{{[502fbc5a-56df-430a-b716-87c962aac651].[found]}}=true"
                 }
               ]
             },
@@ -1131,8 +1151,8 @@
               "name": "VirusTotal",
               "slugVendor": "rapid7",
               "slugName": "virustotal",
-              "slugVersion": "8.0.1",
-              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.0.1/icon.png"
+              "slugVersion": "8.1.0",
+              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.1.0/icon.png"
             },
             "identifier": "lookup_hash",
             "continueOnFailure": true,
@@ -1684,6 +1704,12 @@
                 }
               },
               "properties": {
+                "found": {
+                  "description": "True if found",
+                  "order": 2,
+                  "title": "Found",
+                  "type": "boolean"
+                },
                 "report": {
                   "$ref": "#/definitions/file_report",
                   "description": "Hash report",
@@ -1691,12 +1717,69 @@
                   "title": "Report"
                 }
               },
+              "required": [
+                "found"
+              ],
               "title": "Variables",
               "type": "object"
             },
             "outputJSONSchema": null,
             "defaultImageData": "",
             "connectionType": "CONNECTION"
+          },
+          "69806ab1-21c7-4935-97ad-ff7a03cf0a2b": {
+            "nodeId": "69806ab1-21c7-4935-97ad-ff7a03cf0a2b",
+            "name": "Calculate Total Domain Reports",
+            "type": "action",
+            "plugin": {
+              "name": "Math",
+              "slugVendor": "rapid7",
+              "slugName": "math",
+              "slugVersion": "1.2.1",
+              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/math/1.2.1/icon.png"
+            },
+            "identifier": "calculate",
+            "continueOnFailure": false,
+            "isDisabled": false,
+            "isCloud": false,
+            "parameters": {
+              "input": {
+                "equation": "{{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[harmless]}} + {{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[harmless]}} + {{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[suspicious]}} + {{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[undetected]}}"
+              }
+            },
+            "defaultInputJSONSchema": {
+              "properties": {
+                "equation": {
+                  "description": "Equation to calculate. Uses Python arithmetic operators (+, -, /, *, **, %)",
+                  "order": 1,
+                  "title": "Equation",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "equation"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "defaultOutputJSONSchema": {
+              "properties": {
+                "result": {
+                  "description": "Result of the arithmetic operation",
+                  "order": 1,
+                  "title": "Result",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "result"
+              ],
+              "title": "Variables",
+              "type": "object"
+            },
+            "outputJSONSchema": null,
+            "defaultImageData": "",
+            "connectionType": "ORCHESTRATOR"
           },
           "71e2da52-8f0c-4366-8ed4-6f13a23bb533": {
             "nodeId": "71e2da52-8f0c-4366-8ed4-6f13a23bb533",
@@ -1706,8 +1789,8 @@
               "name": "VirusTotal",
               "slugVendor": "rapid7",
               "slugName": "virustotal",
-              "slugVersion": "8.0.1",
-              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.0.1/icon.png"
+              "slugVersion": "8.1.0",
+              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.1.0/icon.png"
             },
             "identifier": "scan_url_report",
             "continueOnFailure": true,
@@ -2007,6 +2090,12 @@
                 }
               },
               "properties": {
+                "found": {
+                  "description": "True if found",
+                  "order": 2,
+                  "title": "Found",
+                  "type": "boolean"
+                },
                 "report": {
                   "$ref": "#/definitions/url_report",
                   "description": "URL report",
@@ -2014,6 +2103,9 @@
                   "title": "Report"
                 }
               },
+              "required": [
+                "found"
+              ],
               "title": "Variables",
               "type": "object"
             },
@@ -2049,10 +2141,15 @@
               "defaultEdgeId": "06083792-a667-4082-9b96-e4459ba3d881",
               "stepControlParams": [
                 {
+                  "edgeId": "06083792-a667-4082-9b96-e4459ba3d881",
+                  "expression": {},
+                  "expressionText": ""
+                },
+                {
                   "edgeId": "7201634e-4af4-4834-a001-801e316abaa0",
                   "expression": {
                     "left": {
-                      "name": "c329f098-3fbd-495e-9652-16a2d72efcbd.$success",
+                      "name": "c329f098-3fbd-495e-9652-16a2d72efcbd.found",
                       "type": "variable"
                     },
                     "op": "=",
@@ -2062,12 +2159,7 @@
                     },
                     "type": "binary"
                   },
-                  "expressionText": "{{[c329f098-3fbd-495e-9652-16a2d72efcbd].[$success]}}=true"
-                },
-                {
-                  "edgeId": "06083792-a667-4082-9b96-e4459ba3d881",
-                  "expression": {},
-                  "expressionText": ""
+                  "expressionText": "{{[c329f098-3fbd-495e-9652-16a2d72efcbd].[found]}}=true"
                 }
               ]
             },
@@ -2121,7 +2213,7 @@
             "isDisabled": false,
             "parameters": {
               "input": {
-                "content": "## URLs Report\n\n*Report for {{[df6d7d6e-ac6f-4941-b7db-9cbdaba3125c].[$item]}}*\n* Scan Date (timestamp): {{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[report].[last_analysis_date]}}\n* Malicious: {{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[report].[malicious]}}\n* Found Malicious by `{{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[report].[last_analysis_stats].[malicious]}}` scans out of `{{[4c0aa87f-ae17-44a5-83aa-2fa8605000f1].[result]}}` total\n* Full VirusTotal Report: [https://www.virustotal.com/gui/url/{{[3f9f61fe-eecb-44da-8013-fefe861f188a].[sha256]}}/details](https://www.virustotal.com/gui/url/{{[3f9f61fe-eecb-44da-8013-fefe861f188a].[sha256]}}/details)\n\n## Up Next\n1. Browse the **[Extension Library](https://extensions.rapid7.com/?sort=alphabetical&types=workflow&view=grid)** and the **[Discover tab](#/home?Discover=1)** to find, import, and use more automation use cases!\n2. Browse our **[Help Documentation](https://insightconnect.help.rapid7.com/docs)** and **[Discuss Forum](https://discuss.rapid7.com/c/insightconnect)** to learn more about building your own custom workflows\n3. Check out our **[InsightConnect Certified Specialist course](https://www.rapid7.com/services/training-certification/training/insightconnect-certified-specialist/)** to learn about more advanced workflow building concepts!"
+                "content": "## URLs Report\n\n**Report for {{[df6d7d6e-ac6f-4941-b7db-9cbdaba3125c].[$item]}}**\n* Scan Date (timestamp): {{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[report].[last_analysis_date]}}\n* Found Malicious by `{{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[report].[last_analysis_stats].[malicious]}}` scans out of `{{[4c0aa87f-ae17-44a5-83aa-2fa8605000f1].[result]}}` total\n* Full VirusTotal Report: [https://www.virustotal.com/gui/url/{{[3f9f61fe-eecb-44da-8013-fefe861f188a].[sha256]}}/details](https://www.virustotal.com/gui/url/{{[3f9f61fe-eecb-44da-8013-fefe861f188a].[sha256]}}/details)\n"
               },
               "type": "markdown"
             },
@@ -2140,7 +2232,7 @@
             "parameters": {
               "input": {
                 "attachments": [],
-                "message": "## Domain Report\n\n*Report for {{[012f25e4-d69c-47ed-9041-3f00f9008177].[$item]}}*\n* Last analysis results:\n    Harmless: {{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[harmless]}}\n    Malicious: {{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[malicious]}}\n    Suspicious: {{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[suspicious]}}\n* Categories: {{#each [c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[categories]}}\n    * {{this}}\n{{/each}}\n* WHOIS Information:\n{{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[whois]}}\n* Full VirusTotal Report: [https://www.virustotal.com/gui/domain/{{[012f25e4-d69c-47ed-9041-3f00f9008177].[$item]}}/detection](https://www.virustotal.com/gui/domain/{{[012f25e4-d69c-47ed-9041-3f00f9008177].[$item]}}/detection)\n\n## Up Next\n1. Browse the **[Extension Library](https://extensions.rapid7.com/?sort=alphabetical&types=workflow&view=grid)** and the **[Discover tab](#/home?Discover=1)** to find, import, and use more automation use cases!\n2. Browse our **[Help Documentation](https://insightconnect.help.rapid7.com/docs)** and **[Discuss Forum](https://discuss.rapid7.com/c/insightconnect)** to learn more about building your own custom workflows\n3. Check out our **[InsightConnect Certified Specialist course](https://www.rapid7.com/services/training-certification/training/insightconnect-certified-specialist/)** to learn about more advanced workflow building concepts!",
+                "message": "## Domain Report\n\n*Report for {{[012f25e4-d69c-47ed-9041-3f00f9008177].[$item]}}*\n\n* Scan Date (timestamp): {{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_date]}}\n* Found Malicious by `{{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[last_analysis_stats].[malicious]}}` scans out of `{{[69806ab1-21c7-4935-97ad-ff7a03cf0a2b].[result]}}` total\n* Categories: {{#each [c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[categories]}}\n    * {{this}}\n{{/each}}\n* WHOIS Information:\n{{[c329f098-3fbd-495e-9652-16a2d72efcbd].[report].[whois]}}\n* Full VirusTotal Report: https://www.virustotal.com/gui/domain/{{[012f25e4-d69c-47ed-9041-3f00f9008177].[$item]}}/detection\n",
                 "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
                 "thread_ts": "{{[b63eead8-ee94-457b-8b70-3852e4bb7cfe].[parent_message_timestamp]}}"
               }
@@ -2220,7 +2312,7 @@
             "parameters": {
               "input": {
                 "attachments": [],
-                "message": "## IP Addresses Report\n\n*Report for {{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}}*\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n* Hosting country: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n* Network: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n* ASN: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n* Reputation: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n{{/if}}\n* Number of engines that detected malicious URLs associated with this IP: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[last_analysis_stats].[malicious]}}\n* Total number of engines in `detected_URLs` dataset: {{[fbeff396-2b7c-4e40-ac13-7d298e088eeb].[result]}}\n\n* Complete VirusTotal Report: [https://www.virustotal.com/gui/ip-address/{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}}](https://www.virustotal.com/gui/ip-address/{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}})\n\n## Up Next\n1. Browse the **[Extension Library](https://extensions.rapid7.com/?sort=alphabetical&types=workflow&view=grid)** and the **[Discover tab](#/home?Discover=1)** to find, import, and use more automation use cases!\n2. Browse our **[Help Documentation](https://insightconnect.help.rapid7.com/docs)** and **[Discuss Forum](https://discuss.rapid7.com/c/insightconnect)** to learn more about building your own custom workflows\n3. Check out our **[InsightConnect Certified Specialist course](https://www.rapid7.com/services/training-certification/training/insightconnect-certified-specialist/)** to learn about more advanced workflow building concepts!",
+                "message": "## IP Addresses Report\n\n*Report for {{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}}*\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n* Hosting country: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n* Network: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n* ASN: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n* Reputation: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n{{/if}}\n* Found Malicious by `{{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[last_analysis_stats].[malicious]}}` scans out of `{{[fbeff396-2b7c-4e40-ac13-7d298e088eeb].[result]}}` total\n\n* Complete VirusTotal Report: https://www.virustotal.com/gui/ip-address/{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item].[ip]}}",
                 "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
                 "thread_ts": "{{[b63eead8-ee94-457b-8b70-3852e4bb7cfe].[parent_message_timestamp]}}"
               }
@@ -2377,7 +2469,7 @@
             "type": "trigger",
             "continueOnFailure": false,
             "isDisabled": false,
-            "triggerId": "007c608d-0dbd-463e-a04d-71965821f58d",
+            "triggerId": "530c541b-9b3a-4577-a851-a2713fc0f02c",
             "defaultInputJSONSchema": {
               "definitions": {
                 "actor": {
@@ -2954,7 +3046,7 @@
                   "edgeId": "d6095698-2e99-41e1-8335-ed2749985e82",
                   "expression": {
                     "left": {
-                      "name": "71e2da52-8f0c-4366-8ed4-6f13a23bb533.$success",
+                      "name": "71e2da52-8f0c-4366-8ed4-6f13a23bb533.found",
                       "type": "variable"
                     },
                     "op": "=",
@@ -2964,7 +3056,7 @@
                     },
                     "type": "binary"
                   },
-                  "expressionText": "{{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[$success]}}=true"
+                  "expressionText": "{{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[found]}}=true"
                 }
               ]
             },
@@ -2982,8 +3074,8 @@
               "name": "VirusTotal",
               "slugVendor": "rapid7",
               "slugName": "virustotal",
-              "slugVersion": "8.0.1",
-              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.0.1/icon.png"
+              "slugVersion": "8.1.0",
+              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.1.0/icon.png"
             },
             "identifier": "domain_report",
             "continueOnFailure": true,
@@ -3721,6 +3813,12 @@
                 }
               },
               "properties": {
+                "found": {
+                  "description": "True if found",
+                  "order": 2,
+                  "title": "Found",
+                  "type": "boolean"
+                },
                 "report": {
                   "$ref": "#/definitions/domain_report",
                   "description": "Domain report",
@@ -3728,6 +3826,9 @@
                   "title": "Report"
                 }
               },
+              "required": [
+                "found"
+              ],
               "title": "Variables",
               "type": "object"
             },
@@ -3744,7 +3845,7 @@
             "parameters": {
               "input": {
                 "attachments": [],
-                "message": "## Hashes Report\n\n*Hash report for {{[08e64698-3fcd-4b6e-a244-d8fd180e1a04].[$item].[hash]}}*\n* Scan Date (timestamp): {{[502fbc5a-56df-430a-b716-87c962aac651].[report].[last_analysis_date]}}\n* Malicious: {{[502fbc5a-56df-430a-b716-87c962aac651].[report].[malicious]}}\n* Number of malicious reports: {{[502fbc5a-56df-430a-b716-87c962aac651].[report].[last_analysis_stats].[malicious]}}\n* Total reports: {{[20282e3f-62fd-4a22-aa06-335c7f881b20].[result]}}\n* Complete VirusTotal Report: [https://www.virustotal.com/gui/file/{{[502fbc5a-56df-430a-b716-87c962aac651].[report].[sha256]}}/detection](https://www.virustotal.com/gui/file/{{[502fbc5a-56df-430a-b716-87c962aac651].[report].[sha256]}}/detection)\n\n## Up Next\n1. Browse the **[Extension Library](https://extensions.rapid7.com/?sort=alphabetical&types=workflow&view=grid)** and the **[Discover tab](#/home?Discover=1)** to find, import, and use more automation use cases!\n2. Browse our **[Help Documentation](https://insightconnect.help.rapid7.com/docs)** and **[Discuss Forum](https://discuss.rapid7.com/c/insightconnect)** to learn more about building your own custom workflows\n3. Check out our **[InsightConnect Certified Specialist course](https://www.rapid7.com/services/training-certification/training/insightconnect-certified-specialist/)** to learn about more advanced workflow building concepts!",
+                "message": "## Hashes Report\n\n*Hash report for {{[08e64698-3fcd-4b6e-a244-d8fd180e1a04].[$item].[hash]}}*\n* Scan Date (timestamp): {{[502fbc5a-56df-430a-b716-87c962aac651].[report].[last_analysis_date]}}\n* Found Malicious by `{{[502fbc5a-56df-430a-b716-87c962aac651].[report].[last_analysis_stats].[malicious]}}` scans out of `{{[20282e3f-62fd-4a22-aa06-335c7f881b20].[result]}}` total\n* Complete VirusTotal Report: https://www.virustotal.com/gui/file/{{[502fbc5a-56df-430a-b716-87c962aac651].[report].[sha256]}}/detection\n",
                 "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
                 "thread_ts": "{{[b63eead8-ee94-457b-8b70-3852e4bb7cfe].[parent_message_timestamp]}}"
               }
@@ -3823,8 +3924,8 @@
               "name": "VirusTotal",
               "slugVendor": "rapid7",
               "slugName": "virustotal",
-              "slugVersion": "8.0.1",
-              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.0.1/icon.png"
+              "slugVersion": "8.1.0",
+              "imageData": "https://us.cdn-assets.connect.insight.rapid7.com/icons/rapid7/virustotal/8.1.0/icon.png"
             },
             "identifier": "ip_address_report",
             "continueOnFailure": true,
@@ -4433,6 +4534,12 @@
                 }
               },
               "properties": {
+                "found": {
+                  "description": "True if found",
+                  "order": 2,
+                  "title": "Found",
+                  "type": "boolean"
+                },
                 "report": {
                   "$ref": "#/definitions/ip_report",
                   "description": "IP address report",
@@ -4440,6 +4547,9 @@
                   "title": "Report"
                 }
               },
+              "required": [
+                "found"
+              ],
               "title": "Variables",
               "type": "object"
             },
@@ -4703,7 +4813,7 @@
             "isDisabled": false,
             "parameters": {
               "input": {
-                "content": "## IP Addresses Report\n\n*Report for {{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}}*\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n* Hosting country: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n* Network: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n* ASN: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n* Reputation: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n{{/if}}\n* Number of engines that detected malicious URLs associated with this IP: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[last_analysis_stats].[malicious]}}\n* Total number of engines in `detected_URLs` dataset: {{[fbeff396-2b7c-4e40-ac13-7d298e088eeb].[result]}}\n\n* Complete VirusTotal Report: [https://www.virustotal.com/gui/ip-address/{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}}](https://www.virustotal.com/gui/ip-address/{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}})\n\n## Up Next\n1. Browse the **[Extension Library](https://extensions.rapid7.com/?sort=alphabetical&types=workflow&view=grid)** and the **[Discover tab](#/home?Discover=1)** to find, import, and use more automation use cases!\n2. Browse our **[Help Documentation](https://insightconnect.help.rapid7.com/docs)** and **[Discuss Forum](https://discuss.rapid7.com/c/insightconnect)** to learn more about building your own custom workflows\n3. Check out our **[InsightConnect Certified Specialist course](https://www.rapid7.com/services/training-certification/training/insightconnect-certified-specialist/)** to learn about more advanced workflow building concepts!"
+                "content": "## IP Addresses Report\n\n**Report for {{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item]}}**\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n* Hosting country: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[country]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n* Network: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[network]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n* ASN: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[asn]}}\n{{/if}}\n{{#if [c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n* Reputation: {{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[reputation]}}\n{{/if}}\n* Found Malicious by `{{[c82f587a-72fa-4f5a-81a2-edd15173ca7b].[report].[last_analysis_stats].[malicious]}}` scans out of `{{[fbeff396-2b7c-4e40-ac13-7d298e088eeb].[result]}}` total\n\n* Complete VirusTotal Report: [https://www.virustotal.com/gui/ip-address/{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item].[ip]}}](https://www.virustotal.com/gui/ip-address/{{[476a46e4-4928-46e0-8ee3-0aeb20e2bf1a].[$item].[ip]}})"
               },
               "type": "markdown"
             },
@@ -4802,7 +4912,7 @@
             "parameters": {
               "input": {
                 "attachments": [],
-                "message": "## URLs Report\n\n*Report for {{[df6d7d6e-ac6f-4941-b7db-9cbdaba3125c].[$item]}}*\n* Scan Date (timestamp): {{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[report].[last_analysis_date]}}\n* Malicious: {{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[report].[malicious]}}\n* Found Malicious by `{{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[report].[last_analysis_stats].[malicious]}}` scans out of `{{[4c0aa87f-ae17-44a5-83aa-2fa8605000f1].[result]}}` total\n* Full VirusTotal Report: [https://www.virustotal.com/gui/url/{{[3f9f61fe-eecb-44da-8013-fefe861f188a].[sha256]}}/details](https://www.virustotal.com/gui/url/{{[3f9f61fe-eecb-44da-8013-fefe861f188a].[sha256]}}/details)\n\n## Up Next\n1. Browse the **[Extension Library](https://extensions.rapid7.com/?sort=alphabetical&types=workflow&view=grid)** and the **[Discover tab](#/home?Discover=1)** to find, import, and use more automation use cases!\n2. Browse our **[Help Documentation](https://insightconnect.help.rapid7.com/docs)** and **[Discuss Forum](https://discuss.rapid7.com/c/insightconnect)** to learn more about building your own custom workflows\n3. Check out our **[InsightConnect Certified Specialist course](https://www.rapid7.com/services/training-certification/training/insightconnect-certified-specialist/)** to learn about more advanced workflow building concepts!",
+                "message": "## URLs Report\n\n*Report for {{[df6d7d6e-ac6f-4941-b7db-9cbdaba3125c].[$item]}}*\n* Scan Date (timestamp): {{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[report].[last_analysis_date]}}\n* Found Malicious by `{{[71e2da52-8f0c-4366-8ed4-6f13a23bb533].[report].[last_analysis_stats].[malicious]}}` scans out of `{{[4c0aa87f-ae17-44a5-83aa-2fa8605000f1].[result]}}` total\n* Full VirusTotal Report: https://www.virustotal.com/gui/url/{{[3f9f61fe-eecb-44da-8013-fefe861f188a].[sha256]}}/details\n",
                 "recipient": "{{$workflow.[Slack Channel or Person Identifier]}}",
                 "thread_ts": "{{[b63eead8-ee94-457b-8b70-3852e4bb7cfe].[parent_message_timestamp]}}"
               }
@@ -4944,12 +5054,12 @@
             "definitions": {}
           }
         },
-        "summary": ""
+        "summary": "MC-602 PR changes"
       }
     ],
     "triggers": [
       {
-        "id": "007c608d-0dbd-463e-a04d-71965821f58d",
+        "id": "530c541b-9b3a-4577-a851-a2713fc0f02c",
         "name": "IDR Alert",
         "description": "",
         "input": null,
