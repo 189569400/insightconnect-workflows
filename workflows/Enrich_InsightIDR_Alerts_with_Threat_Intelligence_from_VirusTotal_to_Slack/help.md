@@ -59,9 +59,9 @@ Plugins utilized by workflow:
 
 |Plugin|Version|Count|
 |----|----|--------|
-|VirusTotal|8.0.1|4|
+|VirusTotal|8.1.0|4|
 |HashIt|2.0.4|1|
-|Math|1.2.1|3|
+|Math|1.2.1|4|
 
 ## Troubleshooting
 
