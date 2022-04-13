@@ -9,7 +9,7 @@ support: rapid7
 status: []
 hub_tags:
   use_cases: [ticketing, vulnerability_management]
-  keywords: [itsm, parameters]
+  keywords: [itsm, parameters, slack, servicenow]
   features: []
   vendors: [slack, servicenow]
   products: [slack, servicenow]
