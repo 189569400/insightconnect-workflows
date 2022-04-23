@@ -1,0 +1,39 @@
+extension: workflow
+products: ["insightconnect", "insightidr"]
+name: Enrich_InsightIDR_Alerts_with_Threat_Intelligence_from_VirusTotal_and_Present_in_Microsoft_Teams
+title: "Enrich_InsightIDR_Alerts_with_Threat_Intelligence_from_VirusTotal_and_Present_in_Microsoft_Teams"
+description: "This workflow enriches indicators of compromise with threat intelligence from VirusTotal using the IDR Alert Trigger and sends information to the Microsoft Teams channel."
+version: 1.0.0
+vendor: rapid7
+support: rapid7
+status: []
+hub_tags:
+  use_cases: [threat_intel]
+  keywords: [enrichment, ioc, threat_intelligence, hash, ip_address, url, parameters, microsoft_teams, virustotal, parameters]
+  features: []
+  vendors: [rapid7, virustotal, microsoft]
+  products: [insightidr, virustotal, microsoft_teams]
+resources:
+  source_url: https://github.com/rapid7/insightconnect-workflows/tree/master/workflows/Enrich_InsightIDR_Alerts_with_Threat_Intelligence_from_VirusTotal_and_Present_in_Microsoft_Teams
+  license_url: https://github.com/rapid7/insightconnect-workflows/blob/master/LICENSE
+  screenshots:
+  - name: domain_lookup.png
+    title: VirusTotal Domain Lookup Output
+  - name: ip_lookup.png
+    title: VirusTotal IP Address Lookup Output
+  - name: hash_lookup.png
+    title: VirusTotal Hash Lookup Output
+  - name: url_lookup.png
+    title: VirusTotal URL Lookup Output
+  - name: workflow.png
+    title: Workflow View
+  - name: domains_loop.png
+    title: Domains Loop View
+  - name: urls_loop.png
+    title: URLs Loop View
+  - name: ip_addresses_loop.png
+    title: IP Addresses Loop View
+  - name: processes_loop.png
+    title: Processes Loop View
+  - name: hashes_loop.png
+    title: Hashes Loop View
